@@ -13,22 +13,28 @@ export const Skills = () => {
       icon: <Code size={32} />,
       title: t("Fullstack Develpoment"),
       description: t("SkillFullstackDescription"),
-      gradient: "from-blue-500 to-cyan-500",
-      bgGradient: theme === "dark" ? "from-blue-900/20 to-cyan-900/20" : "from-blue-50 to-cyan-50",
+      gradient: "from-hero-blue to-deep-purple",
+      bgGradient: theme === "dark" ? "from-hero-blue/20 to-deep-purple/20" : "from-hero-blue/10 to-deep-purple/10",
+      proficiency: 90,
+      technologies: ["React", "Next.js", "TypeScript", "Node.js", "Express"],
     },
     {
       icon: <Bot size={32} />,
       title: t("AI"),
       description: t("SkillAIDescription"),
-      gradient: "from-purple-500 to-pink-500",
-      bgGradient: theme === "dark" ? "from-purple-900/20 to-pink-900/20" : "from-purple-50 to-pink-50",
+      gradient: "from-gold-accent to-fiery-orange",
+      bgGradient: theme === "dark" ? "from-gold-accent/20 to-fiery-orange/20" : "from-gold-accent/10 to-fiery-orange/10",
+      proficiency: 85,
+      technologies: ["LangChain", "LangGraph", "RAG", "Pinecone", "VectorDB"],
     },
     {
       icon: <Palette size={32} />,
       title: t("UIUX"),
       description: t("SkillUIDescription"),
-      gradient: "from-orange-500 to-red-500",
-      bgGradient: theme === "dark" ? "from-orange-900/20 to-red-900/20" : "from-orange-50 to-red-50",
+      gradient: "from-fiery-orange to-energy-red",
+      bgGradient: theme === "dark" ? "from-fiery-orange/20 to-energy-red/20" : "from-fiery-orange/10 to-energy-red/10",
+      proficiency: 88,
+      technologies: ["Figma", "Protopie", "Bootstrap Studio", "Design Systems"],
     },
   ];
 
@@ -37,20 +43,29 @@ export const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      scale: 0.8,
+      rotateX: -15,
+    },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
+      rotateX: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.7,
         type: "spring",
         stiffness: 100,
+        damping: 15,
       },
     },
   };
@@ -75,10 +90,15 @@ export const Skills = () => {
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -30, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.8,
+            type: "spring",
+            stiffness: 100,
+            damping: 12,
+          }}
           className={`text-4xl md:text-5xl font-bold mb-16 text-center ${
             theme === "dark" ? "text-gray-100" : "text-gray-800"
           }`}
@@ -102,7 +122,13 @@ export const Skills = () => {
                   ? "bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-gray-600"
                   : "bg-white/80 backdrop-blur-sm border border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-2xl"
               }`}
-              whileHover={{ y: -8, scale: 1.02 }}
+              whileHover={{ 
+                y: -12, 
+                scale: 1.03,
+                rotateY: 2,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               {/* Gradient background on hover */}
               <div
@@ -127,12 +153,55 @@ export const Skills = () => {
                 </h3>
 
                 <p
-                  className={`leading-relaxed ${
+                  className={`leading-relaxed mb-4 ${
                     theme === "dark" ? "text-gray-300" : "text-gray-600"
                   }`}
                 >
                   {skill.description}
                 </p>
+
+                {/* Proficiency Bar */}
+                <div className="mb-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className={`text-xs font-medium ${
+                      theme === "dark" ? "text-gray-400" : "text-gray-600"
+                    }`}>
+                      Proficiency
+                    </span>
+                    <span className={`text-xs font-bold ${
+                      theme === "dark" ? "text-gray-300" : "text-gray-700"
+                    }`}>
+                      {skill.proficiency}%
+                    </span>
+                  </div>
+                  <div className={`h-2 rounded-full overflow-hidden ${
+                    theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+                  }`}>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.proficiency}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: index * 0.2, ease: "easeOut" }}
+                      className={`h-full bg-gradient-to-r ${skill.gradient} rounded-full`}
+                    />
+                  </div>
+                </div>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2">
+                  {skill.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className={`px-2 py-1 rounded-md text-xs font-medium ${
+                        theme === "dark"
+                          ? "bg-gray-700/50 text-gray-300 border border-gray-600"
+                          : "bg-gray-100 text-gray-700 border border-gray-200"
+                      }`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Decorative corner accent */}

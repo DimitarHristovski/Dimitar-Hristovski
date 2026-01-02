@@ -12,30 +12,35 @@ export const Contact = () => {
     <section
       className={`py-24 relative overflow-hidden ${
         theme === "dark"
-          ? "bg-gradient-to-b from-gray-800 to-gray-900 text-gray-100"
-          : "bg-gradient-to-b from-gray-50 to-blue-50 text-gray-800"
+          ? "bg-gradient-to-b from-dark-cosmic to-dark-cosmic text-gray-100"
+          : "bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800"
       }`}
     >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-10 ${
-          theme === "dark" ? "bg-blue-500" : "bg-blue-400"
+          theme === "dark" ? "bg-deep-purple" : "bg-deep-purple/30"
         }`} />
         <div className={`absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-10 ${
-          theme === "dark" ? "bg-purple-500" : "bg-purple-400"
+          theme === "dark" ? "bg-fiery-orange" : "bg-fiery-orange/30"
         }`} />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -30, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.8,
+            type: "spring",
+            stiffness: 100,
+            damping: 12,
+          }}
           className="text-center mb-12"
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-semibold"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-gradient-to-r from-hero-blue to-fiery-orange text-white text-sm font-semibold"
             whileHover={{ scale: 1.05 }}
           >
             <MessageCircle size={16} />
@@ -60,24 +65,38 @@ export const Contact = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ 
+            opacity: 0, 
+            y: 40,
+            scale: 0.9,
+          }}
+          whileInView={{ 
+            opacity: 1, 
+            y: 0,
+            scale: 1,
+          }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ 
+            duration: 0.8,
+            type: "spring",
+            stiffness: 120,
+            damping: 15,
+            delay: 0.3,
+          }}
           className="flex justify-center"
         >
           <motion.a
             href="mailto:dimihbt@yahoo.com"
             className={`group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg overflow-hidden ${
               theme === "dark"
-                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-                : "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl"
+                ? "bg-gradient-to-r from-hero-blue to-fiery-orange text-white"
+                : "bg-gradient-to-r from-hero-blue to-fiery-orange text-white shadow-xl"
             }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
             {/* Animated background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-fiery-orange to-energy-red opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
             <Mail size={24} className="relative z-10" />
             <span className="relative z-10">{t("ContactButton")}</span>
@@ -112,7 +131,7 @@ export const Contact = () => {
             <a
               href="mailto:dimihbt@yahoo.com"
               className={`font-semibold hover:underline ${
-                theme === "dark" ? "text-blue-400" : "text-blue-600"
+                theme === "dark" ? "text-fiery-orange" : "text-fiery-orange"
               }`}
             >
               dimihbt@yahoo.com

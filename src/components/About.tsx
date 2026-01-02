@@ -2,11 +2,12 @@ import React from "react";
 import { Coffee, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "./contexts/ThemeContext";
+import { BotMischiefWrapper } from "./BotMischiefWrapper";
 import { motion } from "framer-motion";
 
 const About = () => {
   const { t } = useTranslation();
-  const aboutParagraphKeys = ["AboutParagraph1", "AboutParagraph2"];
+  const aboutParagraphKeys = ["AboutParagraph1", "AboutParagraph2", "AboutParagraph3"];
   const { theme } = useTheme();
 
   return (
@@ -33,22 +34,42 @@ const About = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.8,
+            staggerChildren: 0.2,
+          }}
         >
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ 
+              opacity: 0, 
+              x: -80,
+              scale: 0.9,
+              rotateY: -15,
+            }}
+            whileInView={{ 
+              opacity: 1, 
+              x: 0,
+              scale: 1,
+              rotateY: 0,
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ 
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+            }}
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="/assets/start.jpeg"
-                alt="Profile"
-                className="w-full h-auto object-cover"
-                loading="lazy"
-              />
+              <BotMischiefWrapper elementId="about-image" elementType="image">
+                <img
+                  src="/assets/start.jpeg"
+                  alt="Profile"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </BotMischiefWrapper>
               {/* Gradient overlay */}
               <div
                 className={`absolute inset-0 bg-gradient-to-t ${
@@ -72,35 +93,80 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ 
+              opacity: 0, 
+              x: 80,
+              scale: 0.9,
+            }}
+            whileInView={{ 
+              opacity: 1, 
+              x: 0,
+              scale: 1,
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ 
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              delay: 0.2,
+            }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-semibold"
-              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-gradient-to-r from-hero-blue to-fiery-orange text-white text-sm font-semibold"
+              initial={{ opacity: 0, y: -20, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.6,
+                type: "spring",
+                delay: 0.4,
+              }}
+              whileHover={{ scale: 1.1, rotate: 2 }}
             >
               <Sparkles size={16} />
               <span>About Me</span>
             </motion.div>
 
-            <h2
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.6,
+                delay: 0.5,
+                type: "spring",
+              }}
               className={`text-4xl md:text-5xl font-bold mb-8 ${
                 theme === "dark" ? "text-gray-100" : "text-gray-800"
               }`}
             >
               {t("AboutTitle")}
-            </h2>
+            </motion.h2>
 
             <div className="space-y-6 mb-8">
               {aboutParagraphKeys.map((key, index) => (
                 <motion.p
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ 
+                    opacity: 0, 
+                    y: 30,
+                    x: -20,
+                    scale: 0.95,
+                  }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0,
+                    x: 0,
+                    scale: 1,
+                  }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+                  transition={{ 
+                    duration: 0.7,
+                    delay: 0.6 + index * 0.15,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
                   className={`text-lg leading-relaxed ${
                     theme === "dark" ? "text-gray-300" : "text-gray-600"
                   }`}

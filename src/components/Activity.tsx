@@ -1,18 +1,61 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "./contexts/ThemeContext";
 import { motion } from "framer-motion";
-import { Github, Calendar, ExternalLink, TrendingUp } from "lucide-react";
+import { Github, Calendar, ExternalLink, TrendingUp, RefreshCw } from "lucide-react";
 
 export const Activity = () => {
   const { theme } = useTheme();
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
   const username = "DimitarHristovski";
 
-  useEffect(() => {
-    // Preload the image
+  // Generate chart URL with cache-busting timestamp
+  const getChartUrl = () => {
+    const timestamp = new Date().getTime();
+    // Use multiple services for better reliability and fresh data
+    return `https://ghchart.rshah.org/${username}?t=${timestamp}`;
+  };
+
+  const [chartUrl, setChartUrl] = useState(getChartUrl());
+
+  const refreshChart = async () => {
+    setIsRefreshing(true);
+    setImageLoaded(false);
+    
+    // Force refresh by updating URL with new timestamp
+    const newUrl = getChartUrl();
+    setChartUrl(newUrl);
+    
+    // Preload the new image
     const img = new Image();
-    img.src = `https://ghchart.rshah.org/${username}`;
-    img.onload = () => setImageLoaded(true);
+    img.src = newUrl;
+    img.onload = () => {
+      setImageLoaded(true);
+      setIsRefreshing(false);
+      setLastUpdated(new Date());
+    };
+    img.onerror = () => {
+      setIsRefreshing(false);
+      setImageLoaded(true); // Show old image if new one fails
+    };
+  };
+
+  useEffect(() => {
+    // Initial load
+    const img = new Image();
+    img.src = chartUrl;
+    img.onload = () => {
+      setImageLoaded(true);
+      setLastUpdated(new Date());
+    };
+    
+    // Auto-refresh every 5 minutes to get latest data
+    const refreshInterval = setInterval(() => {
+      refreshChart();
+    }, 5 * 60 * 1000); // 5 minutes
+
+    return () => clearInterval(refreshInterval);
   }, []);
 
   return (
@@ -64,10 +107,15 @@ export const Activity = () => {
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -40, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ 
+            duration: 0.9,
+            type: "spring",
+            stiffness: 100,
+            damping: 12,
+          }}
           className="text-center mb-16"
         >
           <motion.div
@@ -159,25 +207,49 @@ export const Activity = () => {
                   <p className={`text-sm ${
                     theme === "dark" ? "text-gray-400" : "text-gray-600"
                   }`}>
-                    Last 365 days of activity
+                    Last 365 days of activity (public repositories only)
+                    {lastUpdated && (
+                      <span className="ml-2 text-xs opacity-75">
+                        • Updated {lastUpdated.toLocaleTimeString()}
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>
-              <motion.a
-                href={`https://github.com/${username}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, x: 5 }}
-                whileTap={{ scale: 0.95 }}
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
-                  theme === "dark"
-                    ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600"
-                    : "bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700"
-                } shadow-lg hover:shadow-xl`}
-              >
-                View Profile
-                <ExternalLink size={18} />
-              </motion.a>
+              <div className="flex items-center gap-3">
+                <motion.button
+                  onClick={refreshChart}
+                  disabled={isRefreshing}
+                  whileHover={{ scale: 1.05, rotate: 180 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`p-3 rounded-xl transition-all ${
+                    theme === "dark"
+                      ? "bg-gray-700/50 hover:bg-gray-700 text-gray-300 border border-gray-600"
+                      : "bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-200"
+                  } ${isRefreshing ? "opacity-50 cursor-not-allowed" : ""}`}
+                  title="Refresh contribution data"
+                >
+                  <RefreshCw 
+                    size={20} 
+                    className={isRefreshing ? "animate-spin" : ""} 
+                  />
+                </motion.button>
+                <motion.a
+                  href={`https://github.com/${username}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05, x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
+                    theme === "dark"
+                      ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600"
+                      : "bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700"
+                  } shadow-lg hover:shadow-xl`}
+                >
+                  View Profile
+                  <ExternalLink size={18} />
+                </motion.a>
+              </div>
             </div>
 
             {/* Chart Container */}
@@ -186,27 +258,33 @@ export const Activity = () => {
             } p-6 border ${
               theme === "dark" ? "border-gray-700/50" : "border-gray-200/50"
             }`}>
-              {!imageLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center">
+              {(!imageLoaded || isRefreshing) && (
+                <div className="absolute inset-0 flex items-center justify-center z-10 bg-gray-900/80 backdrop-blur-sm rounded-2xl">
                   <div className="text-center">
                     <div className="animate-spin rounded-full h-12 w-12 border-4 border-green-500 border-t-transparent mx-auto mb-4"></div>
                     <p className={`text-sm ${
                       theme === "dark" ? "text-gray-400" : "text-gray-600"
                     }`}>
-                      Loading contribution data...
+                      {isRefreshing ? "Refreshing contribution data..." : "Loading contribution data..."}
                     </p>
                   </div>
                 </div>
               )}
               <motion.img
-                src={`https://ghchart.rshah.org/${username}`}
+                key={chartUrl} // Force re-render on URL change
+                src={chartUrl}
                 alt="GitHub Contributions"
                 className={`w-full h-auto rounded-xl transition-all duration-700 ${
-                  imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                  imageLoaded && !isRefreshing ? "opacity-100 scale-100" : "opacity-0 scale-95"
                 }`}
                 loading="lazy"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
+                onLoad={() => {
+                  if (!isRefreshing) {
+                    setImageLoaded(true);
+                  }
+                }}
               />
               
               {/* Overlay Gradient */}

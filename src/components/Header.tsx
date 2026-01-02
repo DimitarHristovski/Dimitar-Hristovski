@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Globe, ChevronDown } from "lucide-react";
+import { Sun, Moon, ChevronDown } from "lucide-react";
 import { useTheme } from "./contexts/ThemeContext";
 
 const languages = [
@@ -32,21 +32,179 @@ const Header = () => {
   const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "backdrop-blur-xl bg-opacity-80"
-          : "backdrop-blur-md bg-opacity-60"
-      } ${
-        theme === "dark"
-          ? "bg-gray-900/60 border-b border-gray-800/50"
-          : "bg-white/60 border-b border-gray-200/50"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      {/* Window Frame - Complete Frame Around Header */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="fixed top-0 left-0 right-0 z-40 pointer-events-none hidden lg:block"
+        style={{ height: '4rem', padding: '0 1rem' }}
+      >
+        {/* Top Frame Bar */}
+        <div
+          className={`absolute top-0 left-4 right-4 h-3 ${
+            isScrolled
+              ? "backdrop-blur-xl bg-opacity-60"
+              : "backdrop-blur-md bg-opacity-40"
+          } ${
+            theme === "dark"
+              ? "bg-gray-900/40 border-2 border-gray-700/50"
+              : "bg-white/40 border-2 border-gray-200/50"
+          } rounded-t-xl`}
+        />
+
+        {/* Bottom Frame Bar */}
+        <div
+          className={`absolute bottom-0 left-4 right-4 h-3 ${
+            isScrolled
+              ? "backdrop-blur-xl bg-opacity-60"
+              : "backdrop-blur-md bg-opacity-40"
+          } ${
+            theme === "dark"
+              ? "bg-gray-900/40 border-2 border-gray-700/50"
+              : "bg-white/40 border-2 border-gray-200/50"
+          } rounded-b-xl`}
+        />
+
+        {/* Left Frame Bar */}
+        <div
+          className={`absolute top-0 bottom-0 left-0 w-3 ${
+            isScrolled
+              ? "backdrop-blur-xl bg-opacity-60"
+              : "backdrop-blur-md bg-opacity-40"
+          } ${
+            theme === "dark"
+              ? "bg-gray-900/40 border-2 border-gray-700/50"
+              : "bg-white/40 border-2 border-gray-200/50"
+          } rounded-l-xl`}
+        />
+
+        {/* Right Frame Bar */}
+        <div
+          className={`absolute top-0 bottom-0 right-0 w-3 ${
+            isScrolled
+              ? "backdrop-blur-xl bg-opacity-60"
+              : "backdrop-blur-md bg-opacity-40"
+          } ${
+            theme === "dark"
+              ? "bg-gray-900/40 border-2 border-gray-700/50"
+              : "bg-white/40 border-2 border-gray-200/50"
+          } rounded-r-xl`}
+        />
+
+        {/* Corner Decorations - Top Left */}
+        <div
+          className={`absolute top-0 left-0 w-6 h-6 ${
+            theme === "dark" ? "border-gray-600/80" : "border-gray-400/80"
+          }`}
+          style={{
+            borderTopWidth: '3px',
+            borderLeftWidth: '3px',
+            borderTopColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+            borderLeftColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+          }}
+        />
+        <div
+          className={`absolute top-1 left-1 w-3 h-3 ${
+            theme === "dark" ? "border-gray-500/60" : "border-gray-300/60"
+          }`}
+          style={{
+            borderTopWidth: '2px',
+            borderLeftWidth: '2px',
+            borderTopColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+            borderLeftColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+          }}
+        />
+
+        {/* Corner Decorations - Top Right */}
+        <div
+          className={`absolute top-0 right-0 w-6 h-6 ${
+            theme === "dark" ? "border-gray-600/80" : "border-gray-400/80"
+          }`}
+          style={{
+            borderTopWidth: '3px',
+            borderRightWidth: '3px',
+            borderTopColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+            borderRightColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+          }}
+        />
+        <div
+          className={`absolute top-1 right-1 w-3 h-3 ${
+            theme === "dark" ? "border-gray-500/60" : "border-gray-300/60"
+          }`}
+          style={{
+            borderTopWidth: '2px',
+            borderRightWidth: '2px',
+            borderTopColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+            borderRightColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+          }}
+        />
+
+        {/* Corner Decorations - Bottom Left */}
+        <div
+          className={`absolute bottom-0 left-0 w-6 h-6 ${
+            theme === "dark" ? "border-gray-600/80" : "border-gray-400/80"
+          }`}
+          style={{
+            borderBottomWidth: '3px',
+            borderLeftWidth: '3px',
+            borderBottomColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+            borderLeftColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+          }}
+        />
+        <div
+          className={`absolute bottom-1 left-1 w-3 h-3 ${
+            theme === "dark" ? "border-gray-500/60" : "border-gray-300/60"
+          }`}
+          style={{
+            borderBottomWidth: '2px',
+            borderLeftWidth: '2px',
+            borderBottomColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+            borderLeftColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+          }}
+        />
+
+        {/* Corner Decorations - Bottom Right */}
+        <div
+          className={`absolute bottom-0 right-0 w-6 h-6 ${
+            theme === "dark" ? "border-gray-600/80" : "border-gray-400/80"
+          }`}
+          style={{
+            borderBottomWidth: '3px',
+            borderRightWidth: '3px',
+            borderBottomColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+            borderRightColor: theme === "dark" ? "rgba(75, 85, 99, 0.8)" : "rgba(156, 163, 175, 0.8)",
+          }}
+        />
+        <div
+          className={`absolute bottom-1 right-1 w-3 h-3 ${
+            theme === "dark" ? "border-gray-500/60" : "border-gray-300/60"
+          }`}
+          style={{
+            borderBottomWidth: '2px',
+            borderRightWidth: '2px',
+            borderBottomColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+            borderRightColor: theme === "dark" ? "rgba(107, 114, 128, 0.6)" : "rgba(209, 213, 219, 0.6)",
+          }}
+        />
+      </motion.div>
+
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "backdrop-blur-xl bg-opacity-80"
+            : "backdrop-blur-md bg-opacity-60"
+        } ${
+          theme === "dark"
+            ? "bg-dark-cosmic/60 border-b border-dark-cosmic/50"
+            : "bg-white/60 border-b border-gray-200/50"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
           <motion.div
@@ -58,8 +216,8 @@ const Header = () => {
             <span
               className={`text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${
                 theme === "dark"
-                  ? "from-blue-400 to-purple-400"
-                  : "from-blue-600 to-purple-600"
+                  ? "from-gold-accent to-fiery-orange"
+                  : "from-hero-blue to-fiery-orange"
               }`}
             >
               DH
@@ -96,8 +254,8 @@ const Header = () => {
               <div
                 className={`absolute inset-0 rounded-xl opacity-0 hover:opacity-100 transition-opacity duration-300 ${
                   theme === "dark"
-                    ? "bg-yellow-400/20"
-                    : "bg-blue-500/20"
+                    ? "bg-gold-accent/20"
+                    : "bg-fiery-orange/20"
                 }`}
               />
             </motion.button>
@@ -155,8 +313,8 @@ const Header = () => {
                         className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-200 ${
                           i18n.language === lang.code
                             ? theme === "dark"
-                              ? "bg-blue-500/20 text-blue-400"
-                              : "bg-blue-500/10 text-blue-600"
+                              ? "bg-hero-blue/20 text-hero-blue"
+                              : "bg-hero-blue/10 text-hero-blue"
                             : theme === "dark"
                             ? "text-gray-300 hover:bg-gray-700/50"
                             : "text-gray-700 hover:bg-gray-100/50"
@@ -168,7 +326,7 @@ const Header = () => {
                           <motion.div
                             layoutId="activeLang"
                             className={`ml-auto w-2 h-2 rounded-full ${
-                              theme === "dark" ? "bg-blue-400" : "bg-blue-600"
+                              theme === "dark" ? "bg-hero-blue" : "bg-hero-blue"
                             }`}
                           />
                         )}
@@ -190,6 +348,7 @@ const Header = () => {
         />
       )}
     </motion.header>
+    </>
   );
 };
 

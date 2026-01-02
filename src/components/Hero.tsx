@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "./contexts/ThemeContext";
+import { useBotMischief } from "./contexts/BotMischiefContext";
+import { BotMischiefWrapper } from "./BotMischiefWrapper";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -25,10 +27,13 @@ interface GitHubStats {
 const Hero = () => {
   const { t } = useTranslation();
   const { theme } = useTheme();
+  const { shakeText } = useBotMischief();
   const [statsLoading, setStatsLoading] = useState(true);
   const [langsLoading, setLangsLoading] = useState(true);
   const [statsData, setStatsData] = useState<GitHubStats | null>(null);
   const [statsError, setStatsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [retryCount, setRetryCount] = useState(0);
 
   const username = "DimitarHristovski";
 
@@ -44,6 +49,8 @@ const Hero = () => {
         setStatsLoading(true);
         setLangsLoading(true);
         setStatsError(false);
+        setErrorMessage("");
+        setRetryCount(0);
 
         // Fetch user data from GitHub API with timeout
         const controller = new AbortController();
@@ -59,12 +66,28 @@ const Hero = () => {
         clearTimeout(timeoutId);
 
         if (!userResponse.ok) {
-          if (userResponse.status === 403 && retry < maxRetries) {
-            // Rate limit - wait and retry
-            await new Promise(resolve => setTimeout(resolve, 2000 * (retry + 1)));
-            return fetchStats(retry + 1);
+          if (userResponse.status === 403) {
+            const rateLimitReset = userResponse.headers.get('x-ratelimit-reset');
+            
+            if (retry < maxRetries) {
+              // Rate limit - wait and retry
+              const waitTime = rateLimitReset 
+                ? Math.max(0, parseInt(rateLimitReset) * 1000 - Date.now()) + 1000
+                : 2000 * (retry + 1);
+              
+              setErrorMessage(`Rate limit reached. Retrying in ${Math.ceil(waitTime / 1000)}s...`);
+              await new Promise(resolve => setTimeout(resolve, Math.min(waitTime, 10000)));
+              return fetchStats(retry + 1);
+            } else {
+              throw new Error("GitHub API rate limit exceeded. Please try again later.");
+            }
           }
-          throw new Error(`Failed to fetch user data: ${userResponse.status}`);
+          
+          if (userResponse.status === 404) {
+            throw new Error("GitHub user not found. Please check the username.");
+          }
+          
+          throw new Error(`Failed to fetch user data: ${userResponse.status} ${userResponse.statusText}`);
         }
 
         // Fetch repositories with pagination
@@ -90,8 +113,13 @@ const Hero = () => {
 
           if (!reposResponse.ok) {
             if (reposResponse.status === 403 && retry < maxRetries) {
-              await new Promise(resolve => setTimeout(resolve, 2000 * (retry + 1)));
+              const waitTime = 2000 * (retry + 1);
+              setErrorMessage(`Rate limit reached. Retrying...`);
+              await new Promise(resolve => setTimeout(resolve, waitTime));
               return fetchStats(retry + 1);
+            }
+            if (reposResponse.status !== 403) {
+              console.warn(`Failed to fetch repos page ${page}: ${reposResponse.status}`);
             }
             break;
           }
@@ -176,8 +204,18 @@ const Hero = () => {
         
         console.error("Error fetching GitHub stats:", error);
         
-        if (retry < maxRetries && error.name !== 'AbortError') {
+        // Handle specific error types
+        if (error.name === 'AbortError') {
+          setErrorMessage("Request timed out. Please check your connection.");
+        } else if (error.message) {
+          setErrorMessage(error.message);
+        } else {
+          setErrorMessage("Failed to load GitHub stats. Please try again later.");
+        }
+        
+        if (retry < maxRetries && error.name !== 'AbortError' && !error.message?.includes('rate limit')) {
           // Retry with exponential backoff
+          setRetryCount(retry + 1);
           await new Promise(resolve => setTimeout(resolve, 2000 * (retry + 1)));
           return fetchStats(retry + 1);
         }
@@ -188,52 +226,158 @@ const Hero = () => {
       }
     };
 
-    fetchStats();
+    fetchStats(0);
 
     return () => {
       isMounted = false;
     };
   }, [username]);
 
+  // Retry function for manual retry button
+  const handleRetry = async () => {
+    setStatsError(false);
+    setStatsLoading(true);
+    setLangsLoading(true);
+    setErrorMessage("");
+    setRetryCount(0);
+    
+    // Simplified retry - fetch basic stats
+    try {
+      const userResponse = await fetch(`https://api.github.com/users/${username}`, {
+        headers: {
+          'Accept': 'application/vnd.github.v3+json',
+        },
+      });
+
+      if (!userResponse.ok) {
+        if (userResponse.status === 403) {
+          setErrorMessage("GitHub API rate limit exceeded. Please try again later.");
+        } else {
+          setErrorMessage(`Failed to fetch: ${userResponse.status}`);
+        }
+        setStatsError(true);
+        setStatsLoading(false);
+        setLangsLoading(false);
+        return;
+      }
+
+      const reposResponse = await fetch(
+        `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
+        {
+          headers: {
+            'Accept': 'application/vnd.github.v3+json',
+          },
+        }
+      );
+
+      if (!reposResponse.ok) {
+        setErrorMessage(`Failed to fetch repositories: ${reposResponse.status}`);
+        setStatsError(true);
+        setStatsLoading(false);
+        setLangsLoading(false);
+        return;
+      }
+
+      const repos = await reposResponse.json();
+      const totalStars = repos.reduce((acc: number, repo: any) => acc + repo.stargazers_count, 0);
+      const totalCommits = repos.length * 30;
+
+      // Fetch languages for first 20 repos
+      const langPromises = repos.slice(0, 20).map(async (repo: any) => {
+        try {
+          const langResponse = await fetch(repo.languages_url);
+          return langResponse.ok ? await langResponse.json() : {};
+        } catch {
+          return {};
+        }
+      });
+
+      const languageData = await Promise.all(langPromises);
+      const languages: { [key: string]: number } = {};
+
+      languageData.forEach((langs: any) => {
+        Object.keys(langs).forEach((lang) => {
+          languages[lang] = (languages[lang] || 0) + langs[lang];
+        });
+      });
+
+      const sortedLanguages = Object.entries(languages)
+        .sort(([, a], [, b]) => (b as number) - (a as number))
+        .slice(0, 5)
+        .reduce((obj, [key, value]) => {
+          obj[key] = value as number;
+          return obj;
+        }, {} as { [key: string]: number });
+
+      setStatsData({
+        totalStars,
+        totalCommits,
+        totalPRs: 0,
+        totalIssues: 0,
+        contributedTo: 0,
+        languages: sortedLanguages,
+      });
+
+      setStatsLoading(false);
+      setLangsLoading(false);
+    } catch (error: any) {
+      console.error("Error fetching GitHub stats:", error);
+      setStatsError(true);
+      setStatsLoading(false);
+      setLangsLoading(false);
+      setErrorMessage(error.message || "Failed to load GitHub stats. Please try again later.");
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { 
+      opacity: 0, 
+      y: 40,
+      scale: 0.9,
+    },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
       },
     },
   };
 
   return (
-    <section
-      className={`min-h-screen flex flex-col justify-center items-center relative px-4 overflow-hidden pt-16 ${
+    <motion.section
+      id="hero-section"
+      className={`min-h-screen flex flex-col justify-center items-center relative px-4 overflow-hidden pt-16 ${shakeText ? "text-shake" : ""} ${
         theme === "dark"
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100"
-          : "bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-800"
+          ? "bg-gradient-to-br from-dark-cosmic via-dark-cosmic to-dark-cosmic text-gray-100"
+          : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-800"
       }`}
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl opacity-20 ${
-            theme === "dark" ? "bg-blue-500" : "bg-blue-400"
+            theme === "dark" ? "bg-deep-purple" : "bg-deep-purple/30"
           }`}
         />
         <div
           className={`absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl opacity-20 ${
-            theme === "dark" ? "bg-purple-500" : "bg-purple-400"
+            theme === "dark" ? "bg-fiery-orange" : "bg-fiery-orange/30"
           }`}
         />
       </div>
@@ -248,8 +392,8 @@ const Hero = () => {
           variants={itemVariants}
           className={`text-6xl md:text-8xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r ${
             theme === "dark"
-              ? "from-blue-400 via-purple-400 to-pink-400"
-              : "from-blue-600 via-purple-600 to-pink-600"
+              ? "from-gold-accent via-fiery-orange to-energy-red"
+              : "from-deep-purple via-fiery-orange to-energy-red"
           }`}
         >
           {t("HeroTitle")}
@@ -279,10 +423,10 @@ const Hero = () => {
         >
           <motion.a
             href="https://github.com/DimitarHristovski"
-            className={`p-4 rounded-full transition-all duration-300 ${
+            className={`group relative p-4 rounded-full transition-all duration-300 overflow-hidden ${
               theme === "dark"
-                ? "bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white"
-                : "bg-white hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl"
+                ? "bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/90 text-gray-300 hover:text-white border border-gray-700/50"
+                : "bg-white/90 backdrop-blur-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl border border-gray-200/50"
             }`}
             aria-label="GitHub Profile"
             target="_blank"
@@ -290,14 +434,15 @@ const Hero = () => {
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Github size={24} />
+            <div className="absolute inset-0 bg-gradient-to-br from-deep-purple/20 to-fiery-orange/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <Github size={24} className="relative z-10" />
           </motion.a>
           <motion.a
             href="https://linkedin.com/in/dimitar-hristovski-1711a9163"
-            className={`p-4 rounded-full transition-all duration-300 ${
+            className={`group relative p-4 rounded-full transition-all duration-300 overflow-hidden ${
               theme === "dark"
-                ? "bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white"
-                : "bg-white hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl"
+                ? "bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/90 text-gray-300 hover:text-white border border-gray-700/50"
+                : "bg-white/90 backdrop-blur-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl border border-gray-200/50"
             }`}
             aria-label="LinkedIn Profile"
             target="_blank"
@@ -305,20 +450,22 @@ const Hero = () => {
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Linkedin size={24} />
+            <div className="absolute inset-0 bg-gradient-to-br from-hero-blue/20 to-deep-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <Linkedin size={24} className="relative z-10" />
           </motion.a>
           <motion.a
             href="mailto:dimihbt@yahoo.com"
-            className={`p-4 rounded-full transition-all duration-300 ${
+            className={`group relative p-4 rounded-full transition-all duration-300 overflow-hidden ${
               theme === "dark"
-                ? "bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white"
-                : "bg-white hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl"
+                ? "bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/90 text-gray-300 hover:text-white border border-gray-700/50"
+                : "bg-white/90 backdrop-blur-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl border border-gray-200/50"
             }`}
             aria-label="Email Contact"
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Mail size={24} />
+            <div className="absolute inset-0 bg-gradient-to-br from-fiery-orange/20 to-energy-red/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <Mail size={24} className="relative z-10" />
           </motion.a>
         </motion.div>
 
@@ -332,7 +479,7 @@ const Hero = () => {
           }`}
         >
           {/* Decorative gradient overlay */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl" />
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-deep-purple/10 to-fiery-orange/10 rounded-full blur-2xl" />
           
           {/* Section Header */}
           <div className="text-center mb-6 relative z-10">
@@ -366,10 +513,33 @@ const Hero = () => {
                   </div>
                 )}
                 {statsError && (
-                  <div className="flex items-center justify-center h-full">
-                    <p className={`text-sm ${
-                      theme === "dark" ? "text-gray-400" : "text-gray-600"
-                    }`}>Unable to load stats</p>
+                  <div className="flex flex-col items-center justify-center h-full gap-3">
+                    <div className="text-center">
+                      <p className={`text-sm mb-2 ${
+                        theme === "dark" ? "text-gray-400" : "text-gray-600"
+                      }`}>
+                        {errorMessage || "Unable to load stats"}
+                      </p>
+                      {retryCount > 0 && (
+                        <p className={`text-xs ${
+                          theme === "dark" ? "text-gray-500" : "text-gray-500"
+                        }`}>
+                          Retried {retryCount} time{retryCount > 1 ? 's' : ''}
+                        </p>
+                      )}
+                    </div>
+                    <motion.button
+                      onClick={handleRetry}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                        theme === "dark"
+                          ? "bg-gray-700 hover:bg-gray-600 text-gray-300"
+                          : "bg-gray-200 hover:bg-gray-300 text-gray-700"
+                      }`}
+                    >
+                      Retry
+                    </motion.button>
                   </div>
                 )}
                 {!statsLoading && !statsError && statsData && (
@@ -411,7 +581,7 @@ const Hero = () => {
                         theme === "dark" ? "bg-gray-700/50" : "bg-gray-100"
                       }`}>
                         <div className="flex items-center gap-2 mb-1">
-                          <GitFork size={16} className="text-blue-500" />
+                          <GitFork size={16} className="text-hero-blue" />
                           <span className={`text-xs ${
                             theme === "dark" ? "text-gray-400" : "text-gray-600"
                           }`}>Repositories</span>
@@ -455,10 +625,24 @@ const Hero = () => {
                   </div>
                 )}
                 {statsError && (
-                  <div className="flex items-center justify-center h-full">
-                    <p className={`text-sm ${
+                  <div className="flex flex-col items-center justify-center h-full gap-3">
+                    <p className={`text-sm text-center ${
                       theme === "dark" ? "text-gray-400" : "text-gray-600"
-                    }`}>Unable to load languages</p>
+                    }`}>
+                      {errorMessage || "Unable to load languages"}
+                    </p>
+                    <motion.button
+                      onClick={handleRetry}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                        theme === "dark"
+                          ? "bg-gray-700 hover:bg-gray-600 text-gray-300"
+                          : "bg-gray-200 hover:bg-gray-300 text-gray-700"
+                      }`}
+                    >
+                      Retry
+                    </motion.button>
                   </div>
                 )}
                 {!langsLoading && !statsError && statsData && (
@@ -484,7 +668,7 @@ const Hero = () => {
                               theme === "dark" ? "bg-gray-700" : "bg-gray-200"
                             }`}>
                               <div
-                                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500"
+                                className="h-full bg-gradient-to-r from-hero-blue to-fiery-orange transition-all duration-500"
                                 style={{ width: `${percentage}%` }}
                               />
                             </div>
@@ -504,8 +688,8 @@ const Hero = () => {
               href="https://github.com/DimitarHristovski?tab=repositories"
               className={`group flex flex-col items-center justify-center gap-2 p-4 md:p-5 rounded-xl transition-all duration-300 border ${
                 theme === "dark"
-                  ? "bg-gray-700/50 hover:bg-gray-700 text-gray-300 border-gray-600 hover:border-blue-500"
-                  : "bg-blue-50 hover:bg-blue-100 text-gray-700 border-blue-200 hover:border-blue-400"
+                  ? "bg-gray-700/50 hover:bg-gray-700 text-gray-300 border-gray-600 hover:border-hero-blue"
+                  : "bg-fiery-orange/10 hover:bg-fiery-orange/20 text-gray-700 border-fiery-orange/30 hover:border-fiery-orange/50"
               }`}
               target="_blank"
               rel="noopener noreferrer"
@@ -513,9 +697,9 @@ const Hero = () => {
               whileTap={{ scale: 0.98 }}
             >
               <div className={`p-2 rounded-lg ${
-                theme === "dark" ? "bg-blue-500/20" : "bg-blue-100"
+                theme === "dark" ? "bg-hero-blue/20" : "bg-fiery-orange/20"
               }`}>
-                <GitFork size={24} className="text-blue-500" />
+                <GitFork size={24} className="text-hero-blue" />
               </div>
               <span className="font-semibold text-sm md:text-base">Repositories</span>
               <span className={`text-xs ${
@@ -528,8 +712,8 @@ const Hero = () => {
               href="https://github.com/DimitarHristovski?tab=stars"
               className={`group flex flex-col items-center justify-center gap-2 p-4 md:p-5 rounded-xl transition-all duration-300 border ${
                 theme === "dark"
-                  ? "bg-gray-700/50 hover:bg-gray-700 text-gray-300 border-gray-600 hover:border-yellow-500"
-                  : "bg-yellow-50 hover:bg-yellow-100 text-gray-700 border-yellow-200 hover:border-yellow-400"
+                  ? "bg-gray-700/50 hover:bg-gray-700 text-gray-300 border-gray-600 hover:border-gold-accent"
+                  : "bg-gold-accent/10 hover:bg-gold-accent/20 text-gray-700 border-gold-accent/30 hover:border-gold-accent/50"
               }`}
               target="_blank"
               rel="noopener noreferrer"
@@ -537,9 +721,9 @@ const Hero = () => {
               whileTap={{ scale: 0.98 }}
             >
               <div className={`p-2 rounded-lg ${
-                theme === "dark" ? "bg-yellow-500/20" : "bg-yellow-100"
+                theme === "dark" ? "bg-gold-accent/20" : "bg-gold-accent/20"
               }`}>
-                <Star size={24} className="text-yellow-500" />
+                <Star size={24} className="text-gold-accent" />
               </div>
               <span className="font-semibold text-sm md:text-base">Stars</span>
               <span className={`text-xs ${
@@ -586,7 +770,7 @@ const Hero = () => {
           className={theme === "dark" ? "text-gray-400" : "text-gray-500"}
         />
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

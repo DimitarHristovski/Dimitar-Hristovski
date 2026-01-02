@@ -157,10 +157,15 @@ export default function TechBubbleSection() {
 
       <div className="max-w-7xl mx-auto relative z-10 overflow-visible">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -30, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ 
+            duration: 0.8,
+            type: "spring",
+            stiffness: 100,
+            damping: 12,
+          }}
           className={`text-3xl md:text-4xl font-bold text-center mb-12 ${
             theme === "dark" ? "text-gray-100" : "text-gray-800"
           }`}
@@ -168,13 +173,44 @@ export default function TechBubbleSection() {
           Technologies & Tools
         </motion.h2>
 
-        <div className="flex flex-wrap gap-6 justify-center pb-24">
+        <motion.div 
+          className="flex flex-wrap gap-6 justify-center pb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.1,
+              },
+            },
+          }}
+        >
           {techIcons.map((tech, index) => (
             <motion.div
               key={tech.name}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              variants={{
+                hidden: { 
+                  opacity: 0, 
+                  scale: 0.3,
+                  rotate: -180,
+                  y: 50,
+                },
+                visible: { 
+                  opacity: 1, 
+                  scale: 1,
+                  rotate: 0,
+                  y: 0,
+                  transition: {
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15,
+                  },
+                },
+              }}
               animate={{
                 y: hoveredIndex === index ? -10 : [0, -15, 0],
                 rotate: hoveredIndex === index ? [0, 5, -5, 0] : 0,
@@ -268,7 +304,7 @@ export default function TechBubbleSection() {
               </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

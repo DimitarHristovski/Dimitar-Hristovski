@@ -34,7 +34,7 @@ export const skillsData = [
     icon: <Bot size={24} />,
     title: "AI Engineering",
     description:
-      "Skilled in designing and developing intelligent AI agents capable of autonomous decision-making, task automation, conversational interactions, and adaptive responses using state-of-the-art machine learning frameworks and APIs.",
+      "Skilled in designing and developing intelligent AI agents using LangChain and LangGraph for building stateful, multi-actor applications. Experienced in implementing RAG (Retrieval-Augmented Generation) systems with vector databases like Pinecone and VectorDB for semantic search and knowledge retrieval. Capable of creating autonomous decision-making systems, task automation, and conversational AI with adaptive responses.",
   },
   {
     icon: <Palette size={24} />,

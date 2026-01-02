@@ -1,5 +1,5 @@
 import React from "react";
-import LanguageSwitcher from "./components/LanguageSwitcher";
+import Header from "./components/Header";
 import "./i18n/i18";
 import Hero from "./components/Hero";
 import { Skills } from "./components/Skills";
@@ -12,9 +12,8 @@ import TechBubbleSection from "./components/TechBubbleSection";
 
 function App() {
   return (
-    <div>
-      {" "}
-      <LanguageSwitcher />
+    <div className="min-h-screen">
+      <Header />
       <Hero />
       <TechBubbleSection />
       <Skills />
@@ -22,7 +21,7 @@ function App() {
       <Projects />
       <Activity />
       <Contact />
-      <Footer />{" "}
+      <Footer />
     </div>
   );
 }

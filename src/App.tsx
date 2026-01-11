@@ -17,22 +17,10 @@ import { ReadingList } from "./components/ReadingList";
 import { ThreeDBackground } from "./components/ThreeDBackground";
 import { TechStack3D } from "./components/TechStack3D";
 import { ChatRobot } from "./components/ChatRobot";
-import { useTheme } from "./components/contexts/ThemeContext";
 
 function App() {
-  const { theme } = useTheme();
-  
   return (
-    <div 
-      className="min-h-screen relative"
-      style={{
-        backgroundImage: theme === "light" ? "url('/assets/light-theme-background.png')" : undefined,
-        backgroundSize: theme === "light" ? "cover" : undefined,
-        backgroundPosition: theme === "light" ? "center" : undefined,
-        backgroundRepeat: theme === "light" ? "no-repeat" : undefined,
-        backgroundAttachment: theme === "light" ? "fixed" : undefined,
-      }}
-    >
+    <div className="min-h-screen relative">
       <ThreeDBackground />
       <TechStack3D />
       <SparkleAnimation />

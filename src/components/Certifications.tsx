@@ -92,6 +92,17 @@ export const Certifications = () => {
           ? "bg-gradient-to-b from-dark-cosmic to-dark-cosmic text-gray-100"
           : "bg-gradient-to-b from-gray-50 to-white text-gray-800"
       }`}
+      style={
+        theme === "light"
+          ? {
+              backgroundImage: "url('/assets/light-theme-background.png')",
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "repeat",
+              backgroundAttachment: "fixed",
+            }
+          : undefined
+      }
     >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

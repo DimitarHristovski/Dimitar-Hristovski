@@ -8,8 +8,9 @@ interface BotMischiefWrapperProps {
 }
 
 export const BotMischiefWrapper = ({ children, elementId, elementType }: BotMischiefWrapperProps) => {
-  const { kickedOutElements } = useBotMischief();
+  const { kickedOutElements, tokenUsage } = useBotMischief();
   const isKickedOut = kickedOutElements.has(elementId);
+  const isHidden = tokenUsage >= 100000; // Hide when token usage reaches 100k
 
   useEffect(() => {
     // Set data attributes for bot targeting
@@ -18,6 +19,11 @@ export const BotMischiefWrapper = ({ children, elementId, elementType }: BotMisc
       element.setAttribute('data-bot-target', elementType);
     }
   }, [elementId, elementType]);
+
+  // Hide the wrapper if token usage >= 100k
+  if (isHidden) {
+    return null;
+  }
 
   return (
     <div

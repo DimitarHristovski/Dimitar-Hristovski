@@ -36,7 +36,7 @@ const triviaFacts = [
 
 export const ChatRobot = () => {
   const { theme } = useTheme();
-  const { kickOutElement, restoreElement, triggerFireworks } = useBotMischief();
+  const { kickOutElement, restoreElement, triggerFireworks, updateTokenUsage, updateLastInteraction, updateBotPosition } = useBotMischief();
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [message, setMessage] = useState("");
@@ -74,10 +74,12 @@ export const ChatRobot = () => {
       if (isDragging) return; // Don't update position while dragging
       const maxX = Math.max(0, window.innerWidth - 100);
       const maxY = Math.max(0, window.innerHeight - 100);
-      setPosition({
+      const newPosition = {
         x: Math.random() * maxX,
         y: Math.random() * maxY,
-      });
+      };
+      setPosition(newPosition);
+      updateBotPosition(newPosition);
     };
     
     updatePosition();
@@ -282,7 +284,9 @@ export const ChatRobot = () => {
       newX = Math.max(0, Math.min(newX, maxX));
       newY = Math.max(0, Math.min(newY, maxY));
       
-      setPosition({ x: newX, y: newY });
+      const newPosition = { x: newX, y: newY };
+      setPosition(newPosition);
+      updateBotPosition(newPosition);
     };
 
     const handleMouseUp = () => {
@@ -503,6 +507,7 @@ export const ChatRobot = () => {
 
   const handleSend = () => {
     if (message.trim()) {
+      updateLastInteraction();
       const userMsg = message.trim().toLowerCase();
       setMessages([...messages, { text: message, sender: "user" }]);
       setMessage("");
@@ -566,9 +571,10 @@ export const ChatRobot = () => {
             const data = await response.json();
             setMessages(prev => [...prev, { text: data.message, sender: "bot" }]);
             
-            // Log token usage (optional - you can remove this if not needed)
+            // Update token usage in context
             if (data.tokenUsage) {
               console.log('Token usage:', data.tokenUsage);
+              updateTokenUsage(data.tokenUsage);
             }
           } else if (response.status === 429) {
             // Token limit exceeded
@@ -653,6 +659,7 @@ export const ChatRobot = () => {
       {/* Floating Robot */}
       <motion.div
         ref={containerRef}
+        data-bot-container
         className={`fixed z-50 ${isDragging ? "cursor-grabbing" : "cursor-grab"} select-none`}
         animate={{
           x: position.x,
@@ -669,6 +676,7 @@ export const ChatRobot = () => {
         onClick={() => {
           if (!isDragging) {
             setIsOpen(true);
+            updateLastInteraction();
           }
         }}
         whileHover={!isDragging ? { scale: 1.15 } : {}}

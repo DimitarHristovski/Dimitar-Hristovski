@@ -81,7 +81,7 @@ export const projects = [
   },
   {
     id: 8,
-    title: "Stratego Game",
+    title: "Stratego Game (in progress)",
     descriptionKey: "projectDescriptions.stratego",
     category: "gaming",
     image:

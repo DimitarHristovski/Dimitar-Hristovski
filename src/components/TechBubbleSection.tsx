@@ -117,9 +117,10 @@ const techIcons = [
   },
   {
     icon: (
-      <a
-        href="https://stratego-ivory.vercel.app/"
-        target="_blank"
+
+      <a 
+        href="https://stratego-nine.vercel.app/" 
+        target="_blank" 
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}
         className="flex items-center justify-center"

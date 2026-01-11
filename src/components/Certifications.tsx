@@ -117,9 +117,9 @@ export const Certifications = () => {
         theme === "light"
           ? {
               backgroundImage: "url('/assets/light-theme-background.png')",
-              backgroundSize: "cover",
+              backgroundSize: !isMobile ? "50%" : "cover",
               backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
+              backgroundRepeat: "repeat",
               backgroundAttachment: !isMobile ? "fixed" : "scroll",
             }
           : undefined

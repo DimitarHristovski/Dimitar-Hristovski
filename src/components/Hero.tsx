@@ -8,10 +8,8 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import { useTheme } from "./contexts/ThemeContext";
 import { useBotMischief } from "./contexts/BotMischiefContext";
-import { BotMischiefWrapper } from "./BotMischiefWrapper";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -25,7 +23,6 @@ interface GitHubStats {
 }
 
 const Hero = () => {
-  const { t } = useTranslation();
   const { theme } = useTheme();
   const { shakeText } = useBotMischief();
   const [statsLoading, setStatsLoading] = useState(true);
@@ -388,35 +385,6 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.h1
-          variants={itemVariants}
-          className={`text-6xl md:text-8xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r ${
-            theme === "dark"
-              ? "from-gold-accent via-fiery-orange to-energy-red"
-              : "from-deep-purple via-fiery-orange to-energy-red"
-          }`}
-        >
-          {t("HeroTitle")}
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className={`text-2xl md:text-3xl font-semibold mb-4 ${
-            theme === "dark" ? "text-gray-300" : "text-gray-700"
-          }`}
-        >
-          {t("HeroParagraph")}
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className={`text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed ${
-            theme === "dark" ? "text-gray-400" : "text-gray-600"
-          }`}
-        >
-          {t("HeroDescription")}
-        </motion.p>
-
         <motion.div
           variants={itemVariants}
           className="flex gap-6 justify-center mb-16"

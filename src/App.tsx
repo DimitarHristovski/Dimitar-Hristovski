@@ -18,6 +18,7 @@ import { ThreeDBackground } from "./components/ThreeDBackground";
 import { TechStack3D } from "./components/TechStack3D";
 import { ChatRobot } from "./components/ChatRobot";
 import { Banner } from "./components/Banner";
+import { EducationSlider } from "./components/EducationSlider";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Header />
       <Banner />
       <Hero />
+      <EducationSlider />
       <TechBubbleSection />
       <Skills />
       <About />

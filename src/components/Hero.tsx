@@ -1,7 +1,5 @@
 import {
   Github,
-  Linkedin,
-  Mail,
   ChevronDown,
   GitFork,
   Star,
@@ -385,58 +383,6 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.div
-          variants={itemVariants}
-          className="flex gap-6 justify-center mb-16"
-        >
-          <motion.a
-            href="https://github.com/DimitarHristovski"
-            className={`group relative p-4 rounded-full transition-all duration-300 overflow-hidden ${
-              theme === "dark"
-                ? "bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/90 text-gray-300 hover:text-white border border-gray-700/50"
-                : "bg-white/90 backdrop-blur-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl border border-gray-200/50"
-            }`}
-            aria-label="GitHub Profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-deep-purple/20 to-fiery-orange/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <Github size={24} className="relative z-10" />
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com/in/dimitar-hristovski-1711a9163"
-            className={`group relative p-4 rounded-full transition-all duration-300 overflow-hidden ${
-              theme === "dark"
-                ? "bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/90 text-gray-300 hover:text-white border border-gray-700/50"
-                : "bg-white/90 backdrop-blur-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl border border-gray-200/50"
-            }`}
-            aria-label="LinkedIn Profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-hero-blue/20 to-deep-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <Linkedin size={24} className="relative z-10" />
-          </motion.a>
-          <motion.a
-            href="mailto:dimihbt@yahoo.com"
-            className={`group relative p-4 rounded-full transition-all duration-300 overflow-hidden ${
-              theme === "dark"
-                ? "bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/90 text-gray-300 hover:text-white border border-gray-700/50"
-                : "bg-white/90 backdrop-blur-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 shadow-lg hover:shadow-xl border border-gray-200/50"
-            }`}
-            aria-label="Email Contact"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-fiery-orange/20 to-energy-red/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <Mail size={24} className="relative z-10" />
-          </motion.a>
-        </motion.div>
-
         {/* GitHub Stats */}
         <motion.div
           variants={itemVariants}

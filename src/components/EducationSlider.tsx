@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./contexts/ThemeContext";
+import { useTranslation } from "react-i18next";
 import { GraduationCap } from "lucide-react";
 
 interface Education {
@@ -11,35 +12,39 @@ interface Education {
   website?: string;
 }
 
-// Education data
-const educationData: Education[] = [
-  {
-    institution: "Faculty of Information and Communication Technologies - Bitola",
-    degree: "University St. Kliment Ohridski Bitola",
-    period: "2013 - 2018",
-    description: "Studied Information and Communication Technologies, focusing on software development, computer science fundamentals, and modern web technologies. Gained comprehensive knowledge in programming, databases, networking, and system design.",
-    website: "https://www.uklo.edu.mk/",
-  },
-  {
-    institution: "Brainster Academy",
-    degree: "Frontend Web Development Skopje",
-    period: "2022 - 2024",
-    description: "Intensive Frontend web development program covering modern technologies including React.js, Next.js, and best practices. Participated in hands-on projects, and collaborative learning experiences.",
-    website: "https://brainster.co/",
-  },
-  {
-    institution: "Brainster Academy",
-    degree: "AI-atWork Skopje",
-    period: "2025-present",
-    description: "Comprehensive AI and automation program focusing on building AI-driven solutions, implementing RAG pipelines, and working with modern AI tools and frameworks. Gained expertise in AI engineering, automation, and intelligent system development.",
-    website: "https://brainster.co/",
-  },
-];
-
 export const EducationSlider = () => {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideDuration = 5000; // 5 seconds per slide
+
+  // Education data with translations
+  const educationData: Education[] = useMemo(
+    () => [
+      {
+        institution: t("EducationUniversity1"),
+        degree: t("EducationUniversity1Degree"),
+        period: t("EducationUniversity1Period"),
+        description: t("EducationUniversity1Description"),
+        website: "https://www.uklo.edu.mk/",
+      },
+      {
+        institution: t("EducationBrainster1"),
+        degree: t("EducationBrainster1Degree"),
+        period: t("EducationBrainster1Period"),
+        description: t("EducationBrainster1Description"),
+        website: "https://brainster.co/",
+      },
+      {
+        institution: t("EducationBrainster2"),
+        degree: t("EducationBrainster2Degree"),
+        period: t("EducationBrainster2Period"),
+        description: t("EducationBrainster2Description"),
+        website: "https://brainster.co/",
+      },
+    ],
+    [t]
+  );
 
   // Auto-slide functionality
   useEffect(() => {
@@ -48,7 +53,7 @@ export const EducationSlider = () => {
     }, slideDuration);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [educationData.length, slideDuration]);
 
   const currentEducation = educationData[currentIndex];
 
@@ -79,7 +84,7 @@ export const EducationSlider = () => {
                 theme === "dark" ? "text-gray-100" : "text-gray-800"
               }`}
             >
-              Education
+              {t("EducationTitle")}
             </h2>
           </div>
           <p
@@ -87,7 +92,7 @@ export const EducationSlider = () => {
               theme === "dark" ? "text-gray-300" : "text-gray-600"
             }`}
           >
-            Universities and Academies I've attended
+            {t("EducationSubtitle")}
           </p>
         </motion.div>
 

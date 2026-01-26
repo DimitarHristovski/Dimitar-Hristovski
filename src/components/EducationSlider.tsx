@@ -120,7 +120,7 @@ export const EducationSlider = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
-                  className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r hover:opacity-80 transition-opacity cursor-pointer inline-block ${
+                  className={`text-1xl md:text-4xl lg:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r hover:opacity-80 transition-opacity cursor-pointer inline-block ${
                     theme === "dark"
                       ? "from-gold-accent via-fiery-orange to-energy-red"
                       : "from-deep-purple via-fiery-orange to-energy-red"
@@ -133,7 +133,7 @@ export const EducationSlider = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
-                  className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r ${
+                  className={`text-1xl md:text-4xl lg:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r ${
                     theme === "dark"
                       ? "from-gold-accent via-fiery-orange to-energy-red"
                       : "from-deep-purple via-fiery-orange to-energy-red"
@@ -172,7 +172,7 @@ export const EducationSlider = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
-                className={`text-base md:text-lg leading-relaxed max-w-3xl ${
+                className={`text-sm md:text-lg leading-relaxed max-w-3xl ${
                   theme === "dark" ? "text-gray-300" : "text-gray-700"
                 }`}
               >

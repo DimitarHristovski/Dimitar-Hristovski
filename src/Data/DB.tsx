@@ -3,7 +3,7 @@ import React from "react";
 
 export const HeroText = {
   title: "Dimitar Hristovski",
-  paragraph: "Full Stack Developer",
+  paragraph: "Full Stack Developer & AI Engineer",
   description:
     "Passionate full-stack developer with a strong focus on frontend development. Building modern web applications and AI-driven solutions that merge creativity, technology, and intelligence.",
 };

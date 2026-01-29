@@ -25,7 +25,7 @@ const resources = {
       },
       projects: "Featured Projects",
       HeroTitle: "Dimitar Hristovski",
-      HeroParagraph: "Full Stack Developer",
+      HeroParagraph: "Full Stack Developer & AI Engineer",
       HeroDescription:
         "Passionate full-stack developer with a strong focus on frontend development. Building modern web applications and AI-driven solutions that merge creativity, technology, and intelligence.",
       AboutTitle: "About Me",
@@ -130,7 +130,7 @@ const resources = {
       projects: "Ausgewählte Projekte",
 
       HeroTitle: "Dimitar Hristovski",
-      HeroParagraph: "Full-Stack-Entwickler",
+      HeroParagraph: "Full-Stack-Entwickler & AI-Engineer",
       HeroDescription:
         "Spezialisiert auf die Entwicklung moderner Webanwendungen mit Next.js, React und TypeScript. Fokussiert auf effiziente, skalierbare und benutzerfreundliche Lösungen.",
       AboutTitle: "Über mich",
@@ -231,7 +231,7 @@ const resources = {
 
       projects: "Избрани проекти",
       HeroTitle: "Димитар Христовски",
-      HeroParagraph: "Full-Stack-Developer",
+      HeroParagraph: "Full-Stack-Developer & AI-Engineer",
       HeroDescription:
         "Специјализиран за создавање на модерни веб апликации со Next.js, React и TypeScript. Фокусиран на создавање на ефикасни, скалабилни и кориснички пријатни решенија.",
       AboutTitle: "За мене",

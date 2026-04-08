@@ -67,6 +67,17 @@ export const projects = [
     githubUrl: "https://github.com/DimitarHristovski/EduCenter",
     hostedUrl: "#",
   },
+  {
+    id: 20,
+    title: "Grillschulle",
+    descriptionKey: "projectDescriptions.grillschulle",
+    category: "frontend",
+    image:
+      "https://images.unsplash.com/photo-1529193597088-59ee2c43cb73?auto=format&fit=crop&q=80&w=1600",
+    tags: ["Vite", "TypeScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/DimitarHristovski/Grillschulle",
+    hostedUrl: "https://grillschulle.vercel.app/",
+  },
   // Gaming Projects
   {
     id: 7,
@@ -81,14 +92,25 @@ export const projects = [
   },
   {
     id: 8,
-    title: "Stratego Game (in progress)",
+    title: "Strategos",
     descriptionKey: "projectDescriptions.stratego",
     category: "gaming",
     image:
       "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1600",
     tags: ["React", "TypeScript", "Game Development"],
-    githubUrl: "https://github.com/DimitarHristovski/stratego",
-    hostedUrl: "https://stratego-ivory.vercel.app/",
+    githubUrl: "https://github.com/DimitarHristovski/Strategos",
+    hostedUrl: "https://strategos-wheat.vercel.app/",
+  },
+  {
+    id: 19,
+    title: "DuelersDream",
+    descriptionKey: "projectDescriptions.duelersDream",
+    category: "gaming",
+    image:
+      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=1600",
+    tags: ["React", "TypeScript", "Vite", "shadcn/ui"],
+    githubUrl: "https://github.com/DimitarHristovski/DuelersDream",
+    hostedUrl: "#",
   },
   // AI High-Code Projects
   {
@@ -111,6 +133,61 @@ export const projects = [
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",
     tags: ["LangChain", "React", "TypeScript", "Pinecone"],
     githubUrl: "#",
+    hostedUrl: "#",
+  },
+  {
+    id: 15,
+    title: "Voxera",
+    descriptionKey: "projectDescriptions.voxera",
+    category: "ai-hicode",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",
+    tags: ["Next.js", "Tauri", "TypeScript", "LLM"],
+    githubUrl: "https://github.com/DimitarHristovski/Voxera",
+    hostedUrl: "https://voxera-peach.vercel.app",
+  },
+  {
+    id: 16,
+    title: "GitScribe",
+    descriptionKey: "projectDescriptions.gitScribe",
+    category: "ai-hicode",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",
+    tags: ["TypeScript", "Vite", "AI agents"],
+    githubUrl: "https://github.com/DimitarHristovski/GitScribe",
+    hostedUrl: "https://git-scribe.vercel.app",
+  },
+  {
+    id: 17,
+    title: "Health Assistant",
+    descriptionKey: "projectDescriptions.healthAssistant",
+    category: "ai-hicode",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600",
+    tags: ["TypeScript", "AI", "LLM"],
+    githubUrl: "https://github.com/DimitarHristovski/HealthAssistant",
+    hostedUrl: "#",
+  },
+  {
+    id: 18,
+    title: "AI Agent Tour",
+    descriptionKey: "projectDescriptions.aiAgentTour",
+    category: "ai-hicode",
+    image:
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1600",
+    tags: ["LangChain", "TypeScript", "RAG"],
+    githubUrl: "https://github.com/DimitarHristovski/AI-Agent-Tour",
+    hostedUrl: "#",
+  },
+  {
+    id: 21,
+    title: "SiteSense AI",
+    descriptionKey: "projectDescriptions.siteSenseAi",
+    category: "ai-hicode",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",
+    tags: ["TypeScript", "AI", "Devpost"],
+    githubUrl: "https://github.com/DimitarHristovski/SiteSense-AI",
     hostedUrl: "#",
   },
   // AI No-Code Projects

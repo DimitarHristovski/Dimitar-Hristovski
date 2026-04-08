@@ -14,8 +14,23 @@ const resources = {
           "A mobile-first E-store MVP for a client selling jewelry (currently in development).",
         portfolio: "A responsive portfolio built for an online competition.",
         educenter: "A simple educational website I created.",
+        grillschulle:
+          "Small e-commerce frontend built for a client—product-focused shop experience with Vite, React, TypeScript, and Tailwind.",
         carrace: "A simple racing game I created (desktop only).",
-        stratego: "An interactive strategy game built with React and TypeScript, featuring complex game logic and engaging gameplay.",
+        stratego:
+          "Tactical grid war game with historical-inspired factions, troop roles, formation buffs, civilization passives, and signature unit abilities—terrain and battlefield feedback keep momentum readable in real time.",
+        duelersDream:
+          "Dueling simulation in the browser: Vite, React, and TypeScript with shadcn/ui and Tailwind—structured abilities, classes, and duel resolution.",
+        voxera:
+          "Next.js + Tauri desktop app: voice input becomes structured text with speech-to-text and LLM enrichment. Global hotkey for fast notes, meetings, and workflow capture.",
+        gitScribe:
+          "AI-powered GitHub documentation assistant in TypeScript: analyzes repos and generates structured READMEs, badges, summaries, and doc enhancements via AI agents.",
+        healthAssistant:
+          "High-code AI health assistant: conversational guidance and tooling built with TypeScript and LLM integrations.",
+        aiAgentTour:
+          "Tourism-focused AI agent with retrieval and structured workflows—high-code implementation for travel recommendations and trip assistance.",
+        siteSenseAi:
+          "Devpost hackathon submission: SiteSense AI—a high-code prototype that brings AI to web workflows; stack, features, and any demo links are documented in the repository.",
         aiTourism: "AI-powered tourism assistant using LangChain and LangGraph, implementing RAG pipelines for intelligent travel recommendations.",
         aiChat: "Embeddable AI chat widget with semantic search capabilities, built with LangChain and Pinecone vector database.",
         automation: "Complex automation workflows built with N8N, streamlining business processes and data integration.",

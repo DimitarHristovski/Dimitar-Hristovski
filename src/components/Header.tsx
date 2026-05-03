@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, ChevronDown } from "lucide-react";
 import { useTheme } from "./contexts/ThemeContext";
+import { useCelebrationContext } from "../hooks/useCelebrationContext";
 
 const languages = [
   { code: "en", label: "English", flag: "🇬🇧" },
@@ -15,6 +16,7 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const celebration = useCelebrationContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -205,13 +207,13 @@ const Header = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="relative flex items-center justify-between h-16">
           {/* Logo/Brand */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex items-center"
+            className="relative z-[60] flex shrink-0 items-center"
           >
             <span
               className={`text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${
@@ -224,8 +226,37 @@ const Header = () => {
             </span>
           </motion.div>
 
+          {celebration.isBirthday ? (
+            <motion.div
+              role="status"
+              initial={{ opacity: 0, y: -8, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: "spring", stiffness: 140, damping: 20 }}
+              className="pointer-events-none absolute left-1/2 top-1/2 z-[55] w-[min(92vw,340px)] max-w-[calc(100vw-10rem)] -translate-x-1/2 -translate-y-1/2 text-center sm:max-w-[min(380px,calc(100vw-12rem))]"
+            >
+              <div
+                className={`rounded-xl border px-3 py-2 shadow-xl backdrop-blur-md sm:rounded-2xl sm:px-4 sm:py-2.5 ${
+                  theme === "dark"
+                    ? "border-fiery-orange/40 bg-gradient-to-br from-deep-purple/92 via-dark-cosmic/92 to-gray-950/92"
+                    : "border-fiery-orange/35 bg-white/92"
+                }`}
+              >
+                <p className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-accent via-fiery-orange to-energy-red sm:text-base">
+                  It&apos;s my birthday!
+                </p>
+                <p
+                  className={`mt-0.5 text-[11px] leading-snug sm:text-xs ${
+                    theme === "dark" ? "text-gray-300" : "text-gray-600"
+                  }`}
+                >
+                  3 November — thanks for stopping by today.
+                </p>
+              </div>
+            </motion.div>
+          ) : null}
+
           {/* Controls */}
-          <div className="flex items-center gap-3">
+          <div className="relative z-[60] flex shrink-0 items-center gap-3">
             {/* Theme Toggle */}
             <motion.button
               whileHover={{ scale: 1.1 }}

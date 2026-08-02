@@ -103,14 +103,14 @@ export const projects = [
   },
   {
     id: 19,
-    title: "DuelersDream",
-    descriptionKey: "projectDescriptions.duelersDream",
+    title: "◈ Blob Arena: Origins",
+    descriptionKey: "projectDescriptions.blobArena",
     category: "gaming",
     image:
       "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=1600",
     tags: ["React", "TypeScript", "Vite", "shadcn/ui"],
-    githubUrl: "https://github.com/DimitarHristovski/DuelersDream",
-    hostedUrl: "#",
+    githubUrl: "https://github.com/DimitarHristovski/squad-blobs-clash",
+    hostedUrl: "https://squad-blobs-clash.vercel.app/",
   },
   // AI High-Code Projects
   {
@@ -190,6 +190,7 @@ export const projects = [
     githubUrl: "https://github.com/DimitarHristovski/SiteSense-AI",
     hostedUrl: "#",
   },
+
   // AI No-Code Projects
   {
     id: 11,

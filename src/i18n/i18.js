@@ -163,6 +163,38 @@ const resources = {
         educenter: "Eine einfache Bildungswebsite, die ich erstellt habe.",
         carrace:
           "Ein einfaches Rennspiel, das ich erstellt habe (nur für Desktop).",
+        grillschulle:
+          "Kleines E-Commerce-Frontend für einen Kunden—produktorientierte Shop-Erfahrung mit Vite, React, TypeScript und Tailwind.",
+        stratego:
+          "Taktisches Grid-Kriegsspiel mit historisch inspirierten Fraktionen, Truppenrollen, Formation-Buffs, zivilisationsbasierten Passiven und einzigartigen Einheitenfähigkeiten—Gelände- und Schlachtfeld-Feedback hält die Dynamik in Echtzeit lesbar.",
+        duelersDream:
+          "Duell-Simulation im Browser: Vite, React und TypeScript mit shadcn/ui und Tailwind—strukturierte Fähigkeiten, Klassen und Duell-Auflösung.",
+        voxera:
+          "Next.js + Tauri-Desktop-App: Spracheingabe wird mit Spracherkennung und LLM-Anreicherung zu strukturiertem Text. Globale Hotkey für schnelle Notizen, Meetings und Workflow-Erfassung.",
+        gitScribe:
+          "KI-gestützter GitHub-Dokumentationsassistent in TypeScript: analysiert Repos und generiert strukturierte READMEs, Badges, Zusammenfassungen und Dokumentationsverbesserungen über KI-Agenten.",
+        healthAssistant:
+          "High-Code KI-Gesundheitsassistent: konversationsbasierte Beratung und Werkzeuge, entwickelt mit TypeScript und LLM-Integrationen.",
+        aiAgentTour:
+          "Tourismusfokussierter KI-Agent mit Retrieval und strukturierten Workflows—High-Code-Implementierung für Reiseempfehlungen und Reiseunterstützung.",
+        siteSenseAi:
+          "Devpost-Hackathon-Einreichung: SiteSense AI—ein High-Code-Prototyp, der KI in Web-Workflows bringt; Stack, Funktionen und Demo-Links sind im Repository dokumentiert.",
+        aiTourism:
+          "KI-gestützter Tourismusassistent mit LangChain und LangGraph, der RAG-Pipelines für intelligente Reiseempfehlungen implementiert.",
+        aiChat:
+          "Einbettbares KI-Chat-Widget mit semantischen Suchfunktionen, gebaut mit LangChain und der Pinecone-Vektordatenbank.",
+        automation:
+          "Komplexe Automatisierungs-Workflows mit N8N, die Geschäftsprozesse und Datenintegration optimieren.",
+        aiAgent:
+          "No-Code KI-Agent-Builder mit Relevance AI und DeepAgents, der intelligente Automatisierungslösungen ohne traditionelles Programmieren erstellt.",
+        tourismDesign:
+          "Komplettes UI/UX-Design für eine Plattform für alternativen Tourismus, einschließlich Wireframes, Prototypen und Design-System in Figma und Protopie.",
+        designSystem:
+          "Umfassendes Design-System für E-Commerce-Plattformen mit Komponentenbibliotheken und Styleguides, erstellt in Figma und Bootstrap Studio.",
+        repoCheck:
+          "Ein Agent, der Repos scannt und dich informiert, ob sie schädlichen Code enthalten, der nicht sicher für deinen PC oder deine persönlichen Daten ist.",
+        blobArena:
+          "Ein schnelles RPG-Blob-Kampfspiel mit einzigartigen Fähigkeiten und strategischem Gameplay.",
       },
 
       projects: "Ausgewählte Projekte",
@@ -176,6 +208,8 @@ const resources = {
         "Als Full-Stack-Entwickler bin ich spezialisiert auf die Erstellung moderner Webanwendungen mit Next.js, React und TypeScript. Mein Ziel ist es, effiziente, skalierbare und benutzerfreundliche Lösungen zu entwickeln, die echte Probleme lösen.",
       AboutParagraph2:
         "Ich habe Erfahrung in der Entwicklung verschiedener Arten von Anwendungen, von E-Commerce-Plattformen bis hin zu Bildungswebsites. Ich lege großen Wert auf sauberen Code, Leistungsoptimierung und die Schaffung außergewöhnlicher Benutzererfahrungen.",
+      AboutParagraph3:
+        "In letzter Zeit habe ich meine Arbeit auf den KI- und Automatisierungsbereich ausgeweitet und entwickle skalierbare Backend-APIs und intelligente Systeme mit Mistral, LangChain, LangGraph, DeepAgents, n8n und Relevance AI. Mein aktueller Fokus liegt auf dem Aufbau KI-gesteuerter Agenten, der Implementierung von RAG-Pipelines (Retrieval-Augmented Generation) und der Erforschung von High-Code vs. Low-Code, um hybride KI-Lösungen zu schaffen, die Flexibilität mit Effizienz verbinden.",
       AboutTagline: "Immer am Lernen, immer am Programmieren",
       ContactTitle: "Lass uns verbinden",
       ContactDescription:
@@ -277,6 +311,38 @@ const resources = {
         educenter: "Едноставна едукативна веб-страница што ја имам направено.",
         carrace:
           "Едноставна тркачка игра што ја имам направено (само за десктоп).",
+        grillschulle:
+          "Мал e-commerce frontend изработен за клиент—искуство насочено кон производ со Vite, React, TypeScript и Tailwind.",
+        stratego:
+          "Тактичка решеткаста воена игра со историски инспирирани фракции, улоги на војници, формациски подобрувања, цивилизациски пасиви и уникатни способности на единици—повратната информација од теренот и бојното поле ја одржува динамиката читлива во реално време.",
+        duelersDream:
+          "Двобојна симулација во прелистувач: Vite, React и TypeScript со shadcn/ui и Tailwind—структурирани способности, класи и разрешување на двобојот.",
+        voxera:
+          "Next.js + Tauri desktop апликација: гласовниот влез станува структуриран текст со speech-to-text и LLM збогатување. Глобален кратенка за брзи белешки, состаноци и снимање на работни процеси.",
+        gitScribe:
+          "AI-управуван GitHub документациски асистент во TypeScript: анализира репозиториуми и генерира структурирани README, значки, резимеа и подобрувања на документацијата преку AI агенти.",
+        healthAssistant:
+          "High-code AI здравствен асистент: конверзациско водство и алатки изградени со TypeScript и LLM интеграции.",
+        aiAgentTour:
+          "Туристички фокусиран AI агент со retrieval и структурирани работни процеси—high-code имплементација за туристички препораки и помош при патување.",
+        siteSenseAi:
+          "Devpost hackathon пријава: SiteSense AI—high-code прототип кој носи AI во веб работните процеси; стекот, функциите и демо линковите се документирани во репозиториумот.",
+        aiTourism:
+          "AI-управуван туристички асистент кој користи LangChain и LangGraph, имплементирајќи RAG пајплајни за интелигентни туристички препораки.",
+        aiChat:
+          "Вграден AI chat widget со можности за семантичко пребарување, изграден со LangChain и Pinecone векторска база на податоци.",
+        automation:
+          "Комплексни автоматизациски работни процеси изградени со N8N, кои ги оптимизираат деловните процеси и интеграцијата на податоци.",
+        aiAgent:
+          "No-code AI агент builder користејќи Relevance AI и DeepAgents, создавајќи интелигентни автоматизациски решенија без традиционално програмирање.",
+        tourismDesign:
+          "Комплетен UI/UX дизајн за платформа за алтернативен туризам, вклучувајќи wireframes, прототипови и дизајн систем во Figma и Protopie.",
+        designSystem:
+          "Сеопфатен дизајн систем за e-commerce платформи, со библиотеки на компоненти и водичи за стилови создадени во Figma и Bootstrap Studio.",
+        repoCheck:
+          "Агент кој ги скенира репозиториумите и ве информира дали содржат злонамерен код што не е безбеден за вашиот компјутер или вашите лични информации.",
+        blobArena:
+          "Брза RPG blob борбена игра со уникатни способности и стратешки gameplay.",
       },
 
       projects: "Избрани проекти",
@@ -289,6 +355,8 @@ const resources = {
         "Како Full-Stack-Developer, специјализиран сум за создавање на модерни веб апликации со Next.js, React и TypeScript. Мојот фокус е на создавање на ефикасни, скалабилни и кориснички пријатни решенија кои решаваат реални проблеми.",
       AboutParagraph2:
         "Имам искуство во развој на различни видови апликации, од платформи за е-трговија до образовни веб-сајтови. Страствен сум за чист код, оптимизација на перформансите и создавање на изключителни кориснички искуства.",
+      AboutParagraph3:
+        "Неодамна ја проширив мојата работа во областа на AI и автоматизација, развивајќи скалабилни backend API-ја и интелигентни системи со користење на Mistral, LangChain, LangGraph, DeepAgents, n8n и Relevance AI. Мојот моментален фокус вклучува градење AI-управувани агенти, имплементација на RAG (Retrieval-Augmented Generation) пајплајни и истражување на high-code vs. low-code за создавање хибридни AI решенија кои ја комбинираат флексибилноста со ефикасноста.",
       AboutTagline: "Секогаш учам, секогаш кодирам",
       ContactTitle: "Да се поврземе",
       ContactDescription:

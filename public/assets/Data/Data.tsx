@@ -190,6 +190,17 @@ export const projects = [
     githubUrl: "https://github.com/DimitarHristovski/SiteSense-AI",
     hostedUrl: "#",
   },
+  {
+    id: 25,
+    title: "RepoCheck",
+    descriptionKey: "projectDescriptions.repoCheck",
+    category: "ai-hicode",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",
+    tags: ["TypeScript", "AI"],
+    githubUrl: "https://github.com/DimitarHristovski/RepoCheck",
+    hostedUrl: "#",
+  },
 
   // AI No-Code Projects
   {

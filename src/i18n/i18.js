@@ -31,12 +31,22 @@ const resources = {
           "Tourism-focused AI agent with retrieval and structured workflows—high-code implementation for travel recommendations and trip assistance.",
         siteSenseAi:
           "Devpost hackathon submission: SiteSense AI—a high-code prototype that brings AI to web workflows; stack, features, and any demo links are documented in the repository.",
-        aiTourism: "AI-powered tourism assistant using LangChain and LangGraph, implementing RAG pipelines for intelligent travel recommendations.",
-        aiChat: "Embeddable AI chat widget with semantic search capabilities, built with LangChain and Pinecone vector database.",
-        automation: "Complex automation workflows built with N8N, streamlining business processes and data integration.",
-        aiAgent: "No-code AI agent builder using Relevance AI and DeepAgents, creating intelligent automation solutions without traditional coding.",
-        tourismDesign: "Complete UI/UX design for alternative tourism platform, including wireframes, prototypes, and design system in Figma and Protopie.",
-        designSystem: "Comprehensive design system for e-commerce platforms, featuring component libraries and style guides created in Figma and Bootstrap Studio.",
+        aiTourism:
+          "AI-powered tourism assistant using LangChain and LangGraph, implementing RAG pipelines for intelligent travel recommendations.",
+        aiChat:
+          "Embeddable AI chat widget with semantic search capabilities, built with LangChain and Pinecone vector database.",
+        automation:
+          "Complex automation workflows built with N8N, streamlining business processes and data integration.",
+        aiAgent:
+          "No-code AI agent builder using Relevance AI and DeepAgents, creating intelligent automation solutions without traditional coding.",
+        tourismDesign:
+          "Complete UI/UX design for alternative tourism platform, including wireframes, prototypes, and design system in Figma and Protopie.",
+        designSystem:
+          "Comprehensive design system for e-commerce platforms, featuring component libraries and style guides created in Figma and Bootstrap Studio.",
+        repoCheck:
+          "its an Agent that scans repos and informs you if they have a code thats malicious and not safe for your pc or your personal info",
+        blobArena:
+          "A fast-paced RPG blob battle game with unique abilities and strategic gameplay.",
       },
       projects: "Featured Projects",
       HeroTitle: "Dimitar Hristovski",
@@ -50,7 +60,8 @@ const resources = {
         "In addition to my startup experience, I've actively contributed to several open-source projects, collaborating with developers worldwide and honing my ability to write clean, maintainable, and scalable code. While my core strength lies in crafting responsive and engaging interfaces, I also have strong knowledge of backend technologies such as Node.js, Express, SQL, and NoSQL databases, enabling me to deliver end-to-end MERN-stack solutions.",
       AboutParagraph3:
         "Recently, I've expanded my work into the AI and automation space, developing scalable backend APIs and intelligent systems using Mistral, LangChain, LangGraph, DeepAgents, n8n, and Relevance AI. My current focus includes building AI-driven agents, implementing RAG (Retrieval-Augmented Generation) pipelines, and exploring the high-code vs. low-code to create hybrid AI solutions that combine flexibility with efficiency.",
-      AboutTagline: "Building tools that merge creativity, technology, and intelligence",
+      AboutTagline:
+        "Building tools that merge creativity, technology, and intelligence",
       ContactTitle: "Let's Connect",
       ContactDescription:
         "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!",
@@ -84,26 +95,34 @@ const resources = {
       // Reading List
       ReadingListBadge: "Reading List",
       ReadingListTitle: "Books",
-      ReadingListDescription: "I enjoy reading fantasy novels and stoicism philosophy",
+      ReadingListDescription:
+        "I enjoy reading fantasy novels and stoicism philosophy",
       ReadingListBooks: "Books",
       ReadingListStatusReading: "Reading",
       ReadingListStatusWantToRead: "Want to Read",
       // Currently Learning
       CurrentlyLearningBadge: "Currently Learning",
       CurrentlyLearningTitle: "Always Growing, Always Learning",
-      CurrentlyLearningDescription: "Continuously expanding my knowledge and skills across all technologies I work with",
+      CurrentlyLearningDescription:
+        "Continuously expanding my knowledge and skills across all technologies I work with",
       CurrentlyLearningFrontend: "Frontend Technologies",
-      CurrentlyLearningFrontendDesc: "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
+      CurrentlyLearningFrontendDesc:
+        "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
       CurrentlyLearningBackend: "Backend & Databases",
-      CurrentlyLearningBackendDesc: "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
+      CurrentlyLearningBackendDesc:
+        "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
       CurrentlyLearningAI: "AI & Machine Learning",
-      CurrentlyLearningAIDesc: "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
+      CurrentlyLearningAIDesc:
+        "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
       CurrentlyLearningAutomation: "Automation & Tools",
-      CurrentlyLearningAutomationDesc: "N8N, n8n workflows, automation platforms",
+      CurrentlyLearningAutomationDesc:
+        "N8N, n8n workflows, automation platforms",
       CurrentlyLearningDesign: "Design & Prototyping",
-      CurrentlyLearningDesignDesc: "Figma, Protopie, Bootstrap Studio, Design Systems",
+      CurrentlyLearningDesignDesc:
+        "Figma, Protopie, Bootstrap Studio, Design Systems",
       CurrentlyLearningDevTools: "Development Tools",
-      CurrentlyLearningDevToolsDesc: "Visual Studio Code, Git, modern development workflows",
+      CurrentlyLearningDevToolsDesc:
+        "Visual Studio Code, Git, modern development workflows",
       // Certifications
       CertificationsBadge: "Certifications",
       CertificationsTitle: "Certifications & Achievements",
@@ -111,18 +130,22 @@ const resources = {
       // Education
       EducationTitle: "Education",
       EducationSubtitle: "Universities and Academies I've attended",
-      EducationUniversity1: "Faculty of Information and Communication Technologies - Bitola",
+      EducationUniversity1:
+        "Faculty of Information and Communication Technologies - Bitola",
       EducationUniversity1Degree: "University St. Kliment Ohridski Bitola",
       EducationUniversity1Period: "2013 - 2018",
-      EducationUniversity1Description: "Studied Information and Communication Technologies, focusing on software development, computer science fundamentals, and modern web technologies. Gained comprehensive knowledge in programming, databases, networking, and system design.",
+      EducationUniversity1Description:
+        "Studied Information and Communication Technologies, focusing on software development, computer science fundamentals, and modern web technologies. Gained comprehensive knowledge in programming, databases, networking, and system design.",
       EducationBrainster1: "Brainster Academy",
       EducationBrainster1Degree: "Frontend Web Development Skopje",
       EducationBrainster1Period: "2022 - 2024",
-      EducationBrainster1Description: "Intensive Frontend web development program covering modern technologies including React.js, Next.js, and best practices. Participated in hands-on projects, and collaborative learning experiences.",
+      EducationBrainster1Description:
+        "Intensive Frontend web development program covering modern technologies including React.js, Next.js, and best practices. Participated in hands-on projects, and collaborative learning experiences.",
       EducationBrainster2: "Brainster Academy",
       EducationBrainster2Degree: "AI-atWork Skopje",
       EducationBrainster2Period: "2025-present",
-      EducationBrainster2Description: "Comprehensive AI and automation program focusing on building AI-driven solutions, implementing RAG pipelines, and working with modern AI tools and frameworks. Gained expertise in AI engineering, automation, and intelligent system development.",
+      EducationBrainster2Description:
+        "Comprehensive AI and automation program focusing on building AI-driven solutions, implementing RAG pipelines, and working with modern AI tools and frameworks. Gained expertise in AI engineering, automation, and intelligent system development.",
     },
   },
   de: {
@@ -187,26 +210,34 @@ const resources = {
       // Reading List
       ReadingListBadge: "Lese Liste",
       ReadingListTitle: "Bücher",
-      ReadingListDescription: "Ich lese gerne Fantasy-Romane und stoische Philosophie",
+      ReadingListDescription:
+        "Ich lese gerne Fantasy-Romane und stoische Philosophie",
       ReadingListBooks: "Bücher",
       ReadingListStatusReading: "Lesen",
       ReadingListStatusWantToRead: "Möchte lesen",
       // Currently Learning
       CurrentlyLearningBadge: "Aktuell am Lernen",
       CurrentlyLearningTitle: "Immer wachsen, immer lernen",
-      CurrentlyLearningDescription: "Erweitere kontinuierlich mein Wissen und meine Fähigkeiten in allen Technologien, mit denen ich arbeite",
+      CurrentlyLearningDescription:
+        "Erweitere kontinuierlich mein Wissen und meine Fähigkeiten in allen Technologien, mit denen ich arbeite",
       CurrentlyLearningFrontend: "Frontend-Technologien",
-      CurrentlyLearningFrontendDesc: "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
+      CurrentlyLearningFrontendDesc:
+        "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
       CurrentlyLearningBackend: "Backend & Datenbanken",
-      CurrentlyLearningBackendDesc: "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
+      CurrentlyLearningBackendDesc:
+        "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
       CurrentlyLearningAI: "KI & Maschinelles Lernen",
-      CurrentlyLearningAIDesc: "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
+      CurrentlyLearningAIDesc:
+        "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
       CurrentlyLearningAutomation: "Automatisierung & Tools",
-      CurrentlyLearningAutomationDesc: "N8N, n8n-Workflows, Automatisierungsplattformen",
+      CurrentlyLearningAutomationDesc:
+        "N8N, n8n-Workflows, Automatisierungsplattformen",
       CurrentlyLearningDesign: "Design & Prototyping",
-      CurrentlyLearningDesignDesc: "Figma, Protopie, Bootstrap Studio, Design-Systeme",
+      CurrentlyLearningDesignDesc:
+        "Figma, Protopie, Bootstrap Studio, Design-Systeme",
       CurrentlyLearningDevTools: "Entwicklungstools",
-      CurrentlyLearningDevToolsDesc: "Visual Studio Code, Git, moderne Entwicklungsworkflows",
+      CurrentlyLearningDevToolsDesc:
+        "Visual Studio Code, Git, moderne Entwicklungsworkflows",
       // Certifications
       CertificationsBadge: "Zertifizierungen",
       CertificationsTitle: "Zertifizierungen & Erfolge",
@@ -214,18 +245,22 @@ const resources = {
       // Education
       EducationTitle: "Bildung",
       EducationSubtitle: "Universitäten und Akademien, die ich besucht habe",
-      EducationUniversity1: "Fakultät für Informations- und Kommunikationstechnologien - Bitola",
+      EducationUniversity1:
+        "Fakultät für Informations- und Kommunikationstechnologien - Bitola",
       EducationUniversity1Degree: "Universität St. Kliment Ohridski Bitola",
       EducationUniversity1Period: "2013 - 2018",
-      EducationUniversity1Description: "Studium der Informations- und Kommunikationstechnologien mit Schwerpunkt auf Softwareentwicklung, Informatik-Grundlagen und moderne Webtechnologien. Umfassende Kenntnisse in Programmierung, Datenbanken, Netzwerken und Systemdesign erworben.",
+      EducationUniversity1Description:
+        "Studium der Informations- und Kommunikationstechnologien mit Schwerpunkt auf Softwareentwicklung, Informatik-Grundlagen und moderne Webtechnologien. Umfassende Kenntnisse in Programmierung, Datenbanken, Netzwerken und Systemdesign erworben.",
       EducationBrainster1: "Brainster Academy",
       EducationBrainster1Degree: "Frontend Web Development Skopje",
       EducationBrainster1Period: "2022 - 2024",
-      EducationBrainster1Description: "Intensives Frontend-Webentwicklungsprogramm, das moderne Technologien wie React.js, Next.js und Best Practices abdeckt. Teilnahme an praktischen Projekten und kollaborativen Lernerfahrungen.",
+      EducationBrainster1Description:
+        "Intensives Frontend-Webentwicklungsprogramm, das moderne Technologien wie React.js, Next.js und Best Practices abdeckt. Teilnahme an praktischen Projekten und kollaborativen Lernerfahrungen.",
       EducationBrainster2: "Brainster Academy",
       EducationBrainster2Degree: "AI-atWork Skopje",
       EducationBrainster2Period: "2025-heute",
-      EducationBrainster2Description: "Umfassendes KI- und Automatisierungsprogramm mit Fokus auf den Aufbau von KI-gesteuerten Lösungen, die Implementierung von RAG-Pipelines und die Arbeit mit modernen KI-Tools und -Frameworks. Expertise in KI-Engineering, Automatisierung und intelligenter Systementwicklung erworben.",
+      EducationBrainster2Description:
+        "Umfassendes KI- und Automatisierungsprogramm mit Fokus auf den Aufbau von KI-gesteuerten Lösungen, die Implementierung von RAG-Pipelines und die Arbeit mit modernen KI-Tools und -Frameworks. Expertise in KI-Engineering, Automatisierung und intelligenter Systementwicklung erworben.",
     },
   },
   mk: {
@@ -288,26 +323,34 @@ const resources = {
       // Reading List
       ReadingListBadge: "Листа за читање",
       ReadingListTitle: "Книги",
-      ReadingListDescription: "Уживам да читам фантазиски романи и стоичка филозофија",
+      ReadingListDescription:
+        "Уживам да читам фантазиски романи и стоичка филозофија",
       ReadingListBooks: "Книги",
       ReadingListStatusReading: "Читам",
       ReadingListStatusWantToRead: "Сакам да прочитам",
       // Currently Learning
       CurrentlyLearningBadge: "Моментално учам",
       CurrentlyLearningTitle: "Секогаш растам, секогаш учам",
-      CurrentlyLearningDescription: "Континуирано проширувам моето знаење и вештини во сите технологии со кои работам",
+      CurrentlyLearningDescription:
+        "Континуирано проширувам моето знаење и вештини во сите технологии со кои работам",
       CurrentlyLearningFrontend: "Frontend технологии",
-      CurrentlyLearningFrontendDesc: "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
+      CurrentlyLearningFrontendDesc:
+        "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
       CurrentlyLearningBackend: "Backend и бази на податоци",
-      CurrentlyLearningBackendDesc: "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
+      CurrentlyLearningBackendDesc:
+        "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
       CurrentlyLearningAI: "AI и машинско учење",
-      CurrentlyLearningAIDesc: "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
+      CurrentlyLearningAIDesc:
+        "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
       CurrentlyLearningAutomation: "Автоматизација и алатки",
-      CurrentlyLearningAutomationDesc: "N8N, n8n workflows, платформи за автоматизација",
+      CurrentlyLearningAutomationDesc:
+        "N8N, n8n workflows, платформи за автоматизација",
       CurrentlyLearningDesign: "Дизајн и прототипирање",
-      CurrentlyLearningDesignDesc: "Figma, Protopie, Bootstrap Studio, системи за дизајн",
+      CurrentlyLearningDesignDesc:
+        "Figma, Protopie, Bootstrap Studio, системи за дизајн",
       CurrentlyLearningDevTools: "Алатки за развој",
-      CurrentlyLearningDevToolsDesc: "Visual Studio Code, Git, модерни workflows за развој",
+      CurrentlyLearningDevToolsDesc:
+        "Visual Studio Code, Git, модерни workflows за развој",
       // Certifications
       CertificationsBadge: "Сертификати",
       CertificationsTitle: "Сертификати и достигнувања",
@@ -315,18 +358,22 @@ const resources = {
       // Education
       EducationTitle: "Образование",
       EducationSubtitle: "Универзитети и академии кои ги посетував",
-      EducationUniversity1: "Факултет за информациски и комуникациски технологии - Битола",
+      EducationUniversity1:
+        "Факултет за информациски и комуникациски технологии - Битола",
       EducationUniversity1Degree: "Универзитет Св. Климент Охридски Битола",
       EducationUniversity1Period: "2013 - 2018",
-      EducationUniversity1Description: "Студирање на информациски и комуникациски технологии, со фокус на развој на софтвер, основи на компјутерски науки и модерни веб технологии. Стекнато сеопфатно знаење за програмирање, бази на податоци, мрежи и дизајн на системи.",
+      EducationUniversity1Description:
+        "Студирање на информациски и комуникациски технологии, со фокус на развој на софтвер, основи на компјутерски науки и модерни веб технологии. Стекнато сеопфатно знаење за програмирање, бази на податоци, мрежи и дизајн на системи.",
       EducationBrainster1: "Brainster Academy",
       EducationBrainster1Degree: "Frontend Web Development Скопје",
       EducationBrainster1Period: "2022 - 2024",
-      EducationBrainster1Description: "Интензивна програма за развој на Frontend веб апликации која опфаќа модерни технологии вклучувајќи React.js, Next.js и најдобри практики. Учество во практични проекти и колаборативни искуства за учење.",
+      EducationBrainster1Description:
+        "Интензивна програма за развој на Frontend веб апликации која опфаќа модерни технологии вклучувајќи React.js, Next.js и најдобри практики. Учество во практични проекти и колаборативни искуства за учење.",
       EducationBrainster2: "Brainster Academy",
       EducationBrainster2Degree: "AI-atWork Скопје",
       EducationBrainster2Period: "2025-сега",
-      EducationBrainster2Description: "Сеопфатна програма за AI и автоматизација со фокус на градење AI-водени решенија, имплементација на RAG пајплајни и работа со модерни AI алатки и фрејмворци. Стекнато експертиза во AI инженеринг, автоматизација и развој на интелигентни системи.",
+      EducationBrainster2Description:
+        "Сеопфатна програма за AI и автоматизација со фокус на градење AI-водени решенија, имплементација на RAG пајплајни и работа со модерни AI алатки и фрејмворци. Стекнато експертиза во AI инженеринг, автоматизација и развој на интелигентни системи.",
     },
   },
 };

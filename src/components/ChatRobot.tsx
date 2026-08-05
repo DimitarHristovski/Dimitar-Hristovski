@@ -165,7 +165,7 @@ export const ChatRobot = () => {
     // Cause mischief every 15-25 seconds (random interval)
     const getRandomInterval = () => Math.random() * 10000 + 15000; // 15-25 seconds
     
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: ReturnType<typeof setTimeout>;
     const scheduleNextMischief = () => {
       timeoutId = setTimeout(() => {
         causeMischief();

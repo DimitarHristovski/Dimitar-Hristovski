@@ -42,8 +42,15 @@ export const EducationSlider = () => {
         description: t("EducationBrainster2Description"),
         website: "https://brainster.co/",
       },
+      {
+        institution: t("EducationTuring"),
+        degree: t("EducationTuringDegree"),
+        period: t("EducationTuringPeriod"),
+        description: t("EducationTuringDescription"),
+        website: "https://www.turingcollege.com/",
+      },
     ],
-    [t]
+    [t],
   );
 
   // Auto-slide functionality
@@ -77,7 +84,9 @@ export const EducationSlider = () => {
           <div className="inline-flex items-center gap-3 mb-4">
             <GraduationCap
               size={32}
-              className={theme === "dark" ? "text-gold-accent" : "text-deep-purple"}
+              className={
+                theme === "dark" ? "text-gold-accent" : "text-deep-purple"
+              }
             />
             <h2
               className={`text-3xl md:text-4xl lg:text-5xl font-bold ${
@@ -97,7 +106,7 @@ export const EducationSlider = () => {
         </motion.div>
 
         {/* Slider Container */}
-        <div className="relative h-96 md:h-[500px]">
+        <div className="relative h-[480px] md:h-[600px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -193,8 +202,8 @@ export const EducationSlider = () => {
                       ? "bg-gold-accent w-8"
                       : "bg-deep-purple w-8"
                     : theme === "dark"
-                    ? "bg-gray-600 w-2"
-                    : "bg-gray-300 w-2"
+                      ? "bg-gray-600 w-2"
+                      : "bg-gray-300 w-2"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -205,4 +214,3 @@ export const EducationSlider = () => {
     </section>
   );
 };
-

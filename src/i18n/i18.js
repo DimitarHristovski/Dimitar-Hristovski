@@ -146,6 +146,11 @@ const resources = {
       EducationBrainster2Period: "2025-present",
       EducationBrainster2Description:
         "Comprehensive AI and automation program focusing on building AI-driven solutions, implementing RAG pipelines, and working with modern AI tools and frameworks. Gained expertise in AI engineering, automation, and intelligent system development.",
+      EducationTuring: "Turing College",
+      EducationTuringDegree: "AI Engineering",
+      EducationTuringPeriod: "September 2025 - March 2026",
+      EducationTuringDescription:
+        "I recently completed my AI Engineering studies at Turing College, where I focused on RAG systems, LangChain, LangGraph, and vector databases. What I appreciated most was the structure—challenging, real-world projects that pushed me to actually build, not just learn. The mentors were experienced and direct, which made a big difference when working through complex problems. It wasn't easy, but that's exactly the point. The environment forces you to think like an engineer and deliver working solutions. Glad to have gone through it—now continuing deeper into AI agents and real-world applications.",
     },
   },
   de: {
@@ -295,6 +300,11 @@ const resources = {
       EducationBrainster2Period: "2025-heute",
       EducationBrainster2Description:
         "Umfassendes KI- und Automatisierungsprogramm mit Fokus auf den Aufbau von KI-gesteuerten Lösungen, die Implementierung von RAG-Pipelines und die Arbeit mit modernen KI-Tools und -Frameworks. Expertise in KI-Engineering, Automatisierung und intelligenter Systementwicklung erworben.",
+      EducationTuring: "Turing College",
+      EducationTuringDegree: "AI-Engineering",
+      EducationTuringPeriod: "September 2025 - März 2026",
+      EducationTuringDescription:
+        "Ich habe kürzlich mein AI-Engineering-Studium am Turing College abgeschlossen, wo ich mich auf RAG-Systeme, LangChain, LangGraph und Vektordatenbanken konzentriert habe. Was ich am meisten geschätzt habe, war die Struktur—herausfordernde, praxisnahe Projekte, die mich dazu brachten, tatsächlich zu bauen und nicht nur zu lernen. Die Mentoren waren erfahren und direkt, was einen großen Unterschied bei der Arbeit an komplexen Problemen machte. Es war nicht einfach, aber genau darum geht es. Die Umgebung zwingt dich, wie ein Ingenieur zu denken und funktionierende Lösungen zu liefern. Ich bin froh, das durchgemacht zu haben—und vertiefe mich jetzt weiter in KI-Agenten und reale Anwendungen.",
     },
   },
   mk: {
@@ -442,6 +452,11 @@ const resources = {
       EducationBrainster2Period: "2025-сега",
       EducationBrainster2Description:
         "Сеопфатна програма за AI и автоматизација со фокус на градење AI-водени решенија, имплементација на RAG пајплајни и работа со модерни AI алатки и фрејмворци. Стекнато експертиза во AI инженеринг, автоматизација и развој на интелигентни системи.",
+      EducationTuring: "Turing College",
+      EducationTuringDegree: "AI Engineering",
+      EducationTuringPeriod: "Септември 2025 - Март 2026",
+      EducationTuringDescription:
+        "Неодамна ги завршив студиите по AI Engineering на Turing College, каде што се фокусирав на RAG системи, LangChain, LangGraph и векторски бази на податоци. Најмногу го ценев структурата—предизвикувачки, реални проекти кои ме туркаа навистина да градам, а не само да учам. Менторите беа искусни и директни, што правеше голема разлика при работа на комплексни проблеми. Не беше лесно, но тоа е и поентата. Околината те принудува да размислуваш како инженер и да испорачуваш функционални решенија. Мило ми е што поминав низ тоа—сега продолжувам подлабоко во AI агенти и реални апликации.",
     },
   },
 };

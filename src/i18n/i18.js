@@ -14,14 +14,39 @@ const resources = {
           "A mobile-first E-store MVP for a client selling jewelry (currently in development).",
         portfolio: "A responsive portfolio built for an online competition.",
         educenter: "A simple educational website I created.",
+        grillschulle:
+          "Small e-commerce frontend built for a client—product-focused shop experience with Vite, React, TypeScript, and Tailwind.",
         carrace: "A simple racing game I created (desktop only).",
-        stratego: "An interactive strategy game built with React and TypeScript, featuring complex game logic and engaging gameplay.",
-        aiTourism: "AI-powered tourism assistant using LangChain and LangGraph, implementing RAG pipelines for intelligent travel recommendations.",
-        aiChat: "Embeddable AI chat widget with semantic search capabilities, built with LangChain and Pinecone vector database.",
-        automation: "Complex automation workflows built with N8N, streamlining business processes and data integration.",
-        aiAgent: "No-code AI agent builder using Relevance AI and DeepAgents, creating intelligent automation solutions without traditional coding.",
-        tourismDesign: "Complete UI/UX design for alternative tourism platform, including wireframes, prototypes, and design system in Figma and Protopie.",
-        designSystem: "Comprehensive design system for e-commerce platforms, featuring component libraries and style guides created in Figma and Bootstrap Studio.",
+        stratego:
+          "Tactical grid war game with historical-inspired factions, troop roles, formation buffs, civilization passives, and signature unit abilities—terrain and battlefield feedback keep momentum readable in real time.",
+        duelersDream:
+          "Dueling simulation in the browser: Vite, React, and TypeScript with shadcn/ui and Tailwind—structured abilities, classes, and duel resolution.",
+        voxera:
+          "Next.js + Tauri desktop app: voice input becomes structured text with speech-to-text and LLM enrichment. Global hotkey for fast notes, meetings, and workflow capture.",
+        gitScribe:
+          "AI-powered GitHub documentation assistant in TypeScript: analyzes repos and generates structured READMEs, badges, summaries, and doc enhancements via AI agents.",
+        healthAssistant:
+          "High-code AI health assistant: conversational guidance and tooling built with TypeScript and LLM integrations.",
+        aiAgentTour:
+          "Tourism-focused AI agent with retrieval and structured workflows—high-code implementation for travel recommendations and trip assistance.",
+        siteSenseAi:
+          "Devpost hackathon submission: SiteSense AI—a high-code prototype that brings AI to web workflows; stack, features, and any demo links are documented in the repository.",
+        aiTourism:
+          "AI-powered tourism assistant using LangChain and LangGraph, implementing RAG pipelines for intelligent travel recommendations.",
+        aiChat:
+          "Embeddable AI chat widget with semantic search capabilities, built with LangChain and Pinecone vector database.",
+        automation:
+          "Complex automation workflows built with N8N, streamlining business processes and data integration.",
+        aiAgent:
+          "No-code AI agent builder using Relevance AI and DeepAgents, creating intelligent automation solutions without traditional coding.",
+        tourismDesign:
+          "Complete UI/UX design for alternative tourism platform, including wireframes, prototypes, and design system in Figma and Protopie.",
+        designSystem:
+          "Comprehensive design system for e-commerce platforms, featuring component libraries and style guides created in Figma and Bootstrap Studio.",
+        repoCheck:
+          "its an Agent that scans repos and informs you if they have a code thats malicious and not safe for your pc or your personal info",
+        blobArena:
+          "A fast-paced RPG blob battle game with unique abilities and strategic gameplay.",
       },
       projects: "Featured Projects",
       HeroTitle: "Dimitar Hristovski",
@@ -35,7 +60,8 @@ const resources = {
         "In addition to my startup experience, I've actively contributed to several open-source projects, collaborating with developers worldwide and honing my ability to write clean, maintainable, and scalable code. While my core strength lies in crafting responsive and engaging interfaces, I also have strong knowledge of backend technologies such as Node.js, Express, SQL, and NoSQL databases, enabling me to deliver end-to-end MERN-stack solutions.",
       AboutParagraph3:
         "Recently, I've expanded my work into the AI and automation space, developing scalable backend APIs and intelligent systems using Mistral, LangChain, LangGraph, DeepAgents, n8n, and Relevance AI. My current focus includes building AI-driven agents, implementing RAG (Retrieval-Augmented Generation) pipelines, and exploring the high-code vs. low-code to create hybrid AI solutions that combine flexibility with efficiency.",
-      AboutTagline: "Building tools that merge creativity, technology, and intelligence",
+      AboutTagline:
+        "Building tools that merge creativity, technology, and intelligence",
       ContactTitle: "Let's Connect",
       ContactDescription:
         "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!",
@@ -69,26 +95,34 @@ const resources = {
       // Reading List
       ReadingListBadge: "Reading List",
       ReadingListTitle: "Books",
-      ReadingListDescription: "I enjoy reading fantasy novels and stoicism philosophy",
+      ReadingListDescription:
+        "I enjoy reading fantasy novels and stoicism philosophy",
       ReadingListBooks: "Books",
       ReadingListStatusReading: "Reading",
       ReadingListStatusWantToRead: "Want to Read",
       // Currently Learning
       CurrentlyLearningBadge: "Currently Learning",
       CurrentlyLearningTitle: "Always Growing, Always Learning",
-      CurrentlyLearningDescription: "Continuously expanding my knowledge and skills across all technologies I work with",
+      CurrentlyLearningDescription:
+        "Continuously expanding my knowledge and skills across all technologies I work with",
       CurrentlyLearningFrontend: "Frontend Technologies",
-      CurrentlyLearningFrontendDesc: "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
+      CurrentlyLearningFrontendDesc:
+        "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
       CurrentlyLearningBackend: "Backend & Databases",
-      CurrentlyLearningBackendDesc: "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
+      CurrentlyLearningBackendDesc:
+        "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
       CurrentlyLearningAI: "AI & Machine Learning",
-      CurrentlyLearningAIDesc: "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
+      CurrentlyLearningAIDesc:
+        "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
       CurrentlyLearningAutomation: "Automation & Tools",
-      CurrentlyLearningAutomationDesc: "N8N, n8n workflows, automation platforms",
+      CurrentlyLearningAutomationDesc:
+        "N8N, n8n workflows, automation platforms",
       CurrentlyLearningDesign: "Design & Prototyping",
-      CurrentlyLearningDesignDesc: "Figma, Protopie, Bootstrap Studio, Design Systems",
+      CurrentlyLearningDesignDesc:
+        "Figma, Protopie, Bootstrap Studio, Design Systems",
       CurrentlyLearningDevTools: "Development Tools",
-      CurrentlyLearningDevToolsDesc: "Visual Studio Code, Git, modern development workflows",
+      CurrentlyLearningDevToolsDesc:
+        "Visual Studio Code, Git, modern development workflows",
       // Certifications
       CertificationsBadge: "Certifications",
       CertificationsTitle: "Certifications & Achievements",
@@ -96,18 +130,27 @@ const resources = {
       // Education
       EducationTitle: "Education",
       EducationSubtitle: "Universities and Academies I've attended",
-      EducationUniversity1: "Faculty of Information and Communication Technologies - Bitola",
+      EducationUniversity1:
+        "Faculty of Information and Communication Technologies - Bitola",
       EducationUniversity1Degree: "University St. Kliment Ohridski Bitola",
       EducationUniversity1Period: "2013 - 2018",
-      EducationUniversity1Description: "Studied Information and Communication Technologies, focusing on software development, computer science fundamentals, and modern web technologies. Gained comprehensive knowledge in programming, databases, networking, and system design.",
+      EducationUniversity1Description:
+        "Studied Information and Communication Technologies, focusing on software development, computer science fundamentals, and modern web technologies. Gained comprehensive knowledge in programming, databases, networking, and system design.",
       EducationBrainster1: "Brainster Academy",
       EducationBrainster1Degree: "Frontend Web Development Skopje",
       EducationBrainster1Period: "2022 - 2024",
-      EducationBrainster1Description: "Intensive Frontend web development program covering modern technologies including React.js, Next.js, and best practices. Participated in hands-on projects, and collaborative learning experiences.",
+      EducationBrainster1Description:
+        "Intensive Frontend web development program covering modern technologies including React.js, Next.js, and best practices. Participated in hands-on projects, and collaborative learning experiences.",
       EducationBrainster2: "Brainster Academy",
       EducationBrainster2Degree: "AI-atWork Skopje",
       EducationBrainster2Period: "2025-present",
-      EducationBrainster2Description: "Comprehensive AI and automation program focusing on building AI-driven solutions, implementing RAG pipelines, and working with modern AI tools and frameworks. Gained expertise in AI engineering, automation, and intelligent system development.",
+      EducationBrainster2Description:
+        "Comprehensive AI and automation program focusing on building AI-driven solutions, implementing RAG pipelines, and working with modern AI tools and frameworks. Gained expertise in AI engineering, automation, and intelligent system development.",
+      EducationTuring: "Turing College",
+      EducationTuringDegree: "AI Engineering",
+      EducationTuringPeriod: "September 2025 - March 2026",
+      EducationTuringDescription:
+        "I recently completed my AI Engineering studies at Turing College, where I focused on RAG systems, LangChain, LangGraph, and vector databases. What I appreciated most was the structure—challenging, real-world projects that pushed me to actually build, not just learn. The mentors were experienced and direct, which made a big difference when working through complex problems. It wasn't easy, but that's exactly the point. The environment forces you to think like an engineer and deliver working solutions. Glad to have gone through it—now continuing deeper into AI agents and real-world applications.",
     },
   },
   de: {
@@ -125,6 +168,38 @@ const resources = {
         educenter: "Eine einfache Bildungswebsite, die ich erstellt habe.",
         carrace:
           "Ein einfaches Rennspiel, das ich erstellt habe (nur für Desktop).",
+        grillschulle:
+          "Kleines E-Commerce-Frontend für einen Kunden—produktorientierte Shop-Erfahrung mit Vite, React, TypeScript und Tailwind.",
+        stratego:
+          "Taktisches Grid-Kriegsspiel mit historisch inspirierten Fraktionen, Truppenrollen, Formation-Buffs, zivilisationsbasierten Passiven und einzigartigen Einheitenfähigkeiten—Gelände- und Schlachtfeld-Feedback hält die Dynamik in Echtzeit lesbar.",
+        duelersDream:
+          "Duell-Simulation im Browser: Vite, React und TypeScript mit shadcn/ui und Tailwind—strukturierte Fähigkeiten, Klassen und Duell-Auflösung.",
+        voxera:
+          "Next.js + Tauri-Desktop-App: Spracheingabe wird mit Spracherkennung und LLM-Anreicherung zu strukturiertem Text. Globale Hotkey für schnelle Notizen, Meetings und Workflow-Erfassung.",
+        gitScribe:
+          "KI-gestützter GitHub-Dokumentationsassistent in TypeScript: analysiert Repos und generiert strukturierte READMEs, Badges, Zusammenfassungen und Dokumentationsverbesserungen über KI-Agenten.",
+        healthAssistant:
+          "High-Code KI-Gesundheitsassistent: konversationsbasierte Beratung und Werkzeuge, entwickelt mit TypeScript und LLM-Integrationen.",
+        aiAgentTour:
+          "Tourismusfokussierter KI-Agent mit Retrieval und strukturierten Workflows—High-Code-Implementierung für Reiseempfehlungen und Reiseunterstützung.",
+        siteSenseAi:
+          "Devpost-Hackathon-Einreichung: SiteSense AI—ein High-Code-Prototyp, der KI in Web-Workflows bringt; Stack, Funktionen und Demo-Links sind im Repository dokumentiert.",
+        aiTourism:
+          "KI-gestützter Tourismusassistent mit LangChain und LangGraph, der RAG-Pipelines für intelligente Reiseempfehlungen implementiert.",
+        aiChat:
+          "Einbettbares KI-Chat-Widget mit semantischen Suchfunktionen, gebaut mit LangChain und der Pinecone-Vektordatenbank.",
+        automation:
+          "Komplexe Automatisierungs-Workflows mit N8N, die Geschäftsprozesse und Datenintegration optimieren.",
+        aiAgent:
+          "No-Code KI-Agent-Builder mit Relevance AI und DeepAgents, der intelligente Automatisierungslösungen ohne traditionelles Programmieren erstellt.",
+        tourismDesign:
+          "Komplettes UI/UX-Design für eine Plattform für alternativen Tourismus, einschließlich Wireframes, Prototypen und Design-System in Figma und Protopie.",
+        designSystem:
+          "Umfassendes Design-System für E-Commerce-Plattformen mit Komponentenbibliotheken und Styleguides, erstellt in Figma und Bootstrap Studio.",
+        repoCheck:
+          "Ein Agent, der Repos scannt und dich informiert, ob sie schädlichen Code enthalten, der nicht sicher für deinen PC oder deine persönlichen Daten ist.",
+        blobArena:
+          "Ein schnelles RPG-Blob-Kampfspiel mit einzigartigen Fähigkeiten und strategischem Gameplay.",
       },
 
       projects: "Ausgewählte Projekte",
@@ -138,6 +213,8 @@ const resources = {
         "Als Full-Stack-Entwickler bin ich spezialisiert auf die Erstellung moderner Webanwendungen mit Next.js, React und TypeScript. Mein Ziel ist es, effiziente, skalierbare und benutzerfreundliche Lösungen zu entwickeln, die echte Probleme lösen.",
       AboutParagraph2:
         "Ich habe Erfahrung in der Entwicklung verschiedener Arten von Anwendungen, von E-Commerce-Plattformen bis hin zu Bildungswebsites. Ich lege großen Wert auf sauberen Code, Leistungsoptimierung und die Schaffung außergewöhnlicher Benutzererfahrungen.",
+      AboutParagraph3:
+        "In letzter Zeit habe ich meine Arbeit auf den KI- und Automatisierungsbereich ausgeweitet und entwickle skalierbare Backend-APIs und intelligente Systeme mit Mistral, LangChain, LangGraph, DeepAgents, n8n und Relevance AI. Mein aktueller Fokus liegt auf dem Aufbau KI-gesteuerter Agenten, der Implementierung von RAG-Pipelines (Retrieval-Augmented Generation) und der Erforschung von High-Code vs. Low-Code, um hybride KI-Lösungen zu schaffen, die Flexibilität mit Effizienz verbinden.",
       AboutTagline: "Immer am Lernen, immer am Programmieren",
       ContactTitle: "Lass uns verbinden",
       ContactDescription:
@@ -172,26 +249,34 @@ const resources = {
       // Reading List
       ReadingListBadge: "Lese Liste",
       ReadingListTitle: "Bücher",
-      ReadingListDescription: "Ich lese gerne Fantasy-Romane und stoische Philosophie",
+      ReadingListDescription:
+        "Ich lese gerne Fantasy-Romane und stoische Philosophie",
       ReadingListBooks: "Bücher",
       ReadingListStatusReading: "Lesen",
       ReadingListStatusWantToRead: "Möchte lesen",
       // Currently Learning
       CurrentlyLearningBadge: "Aktuell am Lernen",
       CurrentlyLearningTitle: "Immer wachsen, immer lernen",
-      CurrentlyLearningDescription: "Erweitere kontinuierlich mein Wissen und meine Fähigkeiten in allen Technologien, mit denen ich arbeite",
+      CurrentlyLearningDescription:
+        "Erweitere kontinuierlich mein Wissen und meine Fähigkeiten in allen Technologien, mit denen ich arbeite",
       CurrentlyLearningFrontend: "Frontend-Technologien",
-      CurrentlyLearningFrontendDesc: "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
+      CurrentlyLearningFrontendDesc:
+        "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
       CurrentlyLearningBackend: "Backend & Datenbanken",
-      CurrentlyLearningBackendDesc: "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
+      CurrentlyLearningBackendDesc:
+        "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
       CurrentlyLearningAI: "KI & Maschinelles Lernen",
-      CurrentlyLearningAIDesc: "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
+      CurrentlyLearningAIDesc:
+        "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
       CurrentlyLearningAutomation: "Automatisierung & Tools",
-      CurrentlyLearningAutomationDesc: "N8N, n8n-Workflows, Automatisierungsplattformen",
+      CurrentlyLearningAutomationDesc:
+        "N8N, n8n-Workflows, Automatisierungsplattformen",
       CurrentlyLearningDesign: "Design & Prototyping",
-      CurrentlyLearningDesignDesc: "Figma, Protopie, Bootstrap Studio, Design-Systeme",
+      CurrentlyLearningDesignDesc:
+        "Figma, Protopie, Bootstrap Studio, Design-Systeme",
       CurrentlyLearningDevTools: "Entwicklungstools",
-      CurrentlyLearningDevToolsDesc: "Visual Studio Code, Git, moderne Entwicklungsworkflows",
+      CurrentlyLearningDevToolsDesc:
+        "Visual Studio Code, Git, moderne Entwicklungsworkflows",
       // Certifications
       CertificationsBadge: "Zertifizierungen",
       CertificationsTitle: "Zertifizierungen & Erfolge",
@@ -199,18 +284,27 @@ const resources = {
       // Education
       EducationTitle: "Bildung",
       EducationSubtitle: "Universitäten und Akademien, die ich besucht habe",
-      EducationUniversity1: "Fakultät für Informations- und Kommunikationstechnologien - Bitola",
+      EducationUniversity1:
+        "Fakultät für Informations- und Kommunikationstechnologien - Bitola",
       EducationUniversity1Degree: "Universität St. Kliment Ohridski Bitola",
       EducationUniversity1Period: "2013 - 2018",
-      EducationUniversity1Description: "Studium der Informations- und Kommunikationstechnologien mit Schwerpunkt auf Softwareentwicklung, Informatik-Grundlagen und moderne Webtechnologien. Umfassende Kenntnisse in Programmierung, Datenbanken, Netzwerken und Systemdesign erworben.",
+      EducationUniversity1Description:
+        "Studium der Informations- und Kommunikationstechnologien mit Schwerpunkt auf Softwareentwicklung, Informatik-Grundlagen und moderne Webtechnologien. Umfassende Kenntnisse in Programmierung, Datenbanken, Netzwerken und Systemdesign erworben.",
       EducationBrainster1: "Brainster Academy",
       EducationBrainster1Degree: "Frontend Web Development Skopje",
       EducationBrainster1Period: "2022 - 2024",
-      EducationBrainster1Description: "Intensives Frontend-Webentwicklungsprogramm, das moderne Technologien wie React.js, Next.js und Best Practices abdeckt. Teilnahme an praktischen Projekten und kollaborativen Lernerfahrungen.",
+      EducationBrainster1Description:
+        "Intensives Frontend-Webentwicklungsprogramm, das moderne Technologien wie React.js, Next.js und Best Practices abdeckt. Teilnahme an praktischen Projekten und kollaborativen Lernerfahrungen.",
       EducationBrainster2: "Brainster Academy",
       EducationBrainster2Degree: "AI-atWork Skopje",
       EducationBrainster2Period: "2025-heute",
-      EducationBrainster2Description: "Umfassendes KI- und Automatisierungsprogramm mit Fokus auf den Aufbau von KI-gesteuerten Lösungen, die Implementierung von RAG-Pipelines und die Arbeit mit modernen KI-Tools und -Frameworks. Expertise in KI-Engineering, Automatisierung und intelligenter Systementwicklung erworben.",
+      EducationBrainster2Description:
+        "Umfassendes KI- und Automatisierungsprogramm mit Fokus auf den Aufbau von KI-gesteuerten Lösungen, die Implementierung von RAG-Pipelines und die Arbeit mit modernen KI-Tools und -Frameworks. Expertise in KI-Engineering, Automatisierung und intelligenter Systementwicklung erworben.",
+      EducationTuring: "Turing College",
+      EducationTuringDegree: "AI-Engineering",
+      EducationTuringPeriod: "September 2025 - März 2026",
+      EducationTuringDescription:
+        "Ich habe kürzlich mein AI-Engineering-Studium am Turing College abgeschlossen, wo ich mich auf RAG-Systeme, LangChain, LangGraph und Vektordatenbanken konzentriert habe. Was ich am meisten geschätzt habe, war die Struktur—herausfordernde, praxisnahe Projekte, die mich dazu brachten, tatsächlich zu bauen und nicht nur zu lernen. Die Mentoren waren erfahren und direkt, was einen großen Unterschied bei der Arbeit an komplexen Problemen machte. Es war nicht einfach, aber genau darum geht es. Die Umgebung zwingt dich, wie ein Ingenieur zu denken und funktionierende Lösungen zu liefern. Ich bin froh, das durchgemacht zu haben—und vertiefe mich jetzt weiter in KI-Agenten und reale Anwendungen.",
     },
   },
   mk: {
@@ -227,6 +321,38 @@ const resources = {
         educenter: "Едноставна едукативна веб-страница што ја имам направено.",
         carrace:
           "Едноставна тркачка игра што ја имам направено (само за десктоп).",
+        grillschulle:
+          "Мал e-commerce frontend изработен за клиент—искуство насочено кон производ со Vite, React, TypeScript и Tailwind.",
+        stratego:
+          "Тактичка решеткаста воена игра со историски инспирирани фракции, улоги на војници, формациски подобрувања, цивилизациски пасиви и уникатни способности на единици—повратната информација од теренот и бојното поле ја одржува динамиката читлива во реално време.",
+        duelersDream:
+          "Двобојна симулација во прелистувач: Vite, React и TypeScript со shadcn/ui и Tailwind—структурирани способности, класи и разрешување на двобојот.",
+        voxera:
+          "Next.js + Tauri desktop апликација: гласовниот влез станува структуриран текст со speech-to-text и LLM збогатување. Глобален кратенка за брзи белешки, состаноци и снимање на работни процеси.",
+        gitScribe:
+          "AI-управуван GitHub документациски асистент во TypeScript: анализира репозиториуми и генерира структурирани README, значки, резимеа и подобрувања на документацијата преку AI агенти.",
+        healthAssistant:
+          "High-code AI здравствен асистент: конверзациско водство и алатки изградени со TypeScript и LLM интеграции.",
+        aiAgentTour:
+          "Туристички фокусиран AI агент со retrieval и структурирани работни процеси—high-code имплементација за туристички препораки и помош при патување.",
+        siteSenseAi:
+          "Devpost hackathon пријава: SiteSense AI—high-code прототип кој носи AI во веб работните процеси; стекот, функциите и демо линковите се документирани во репозиториумот.",
+        aiTourism:
+          "AI-управуван туристички асистент кој користи LangChain и LangGraph, имплементирајќи RAG пајплајни за интелигентни туристички препораки.",
+        aiChat:
+          "Вграден AI chat widget со можности за семантичко пребарување, изграден со LangChain и Pinecone векторска база на податоци.",
+        automation:
+          "Комплексни автоматизациски работни процеси изградени со N8N, кои ги оптимизираат деловните процеси и интеграцијата на податоци.",
+        aiAgent:
+          "No-code AI агент builder користејќи Relevance AI и DeepAgents, создавајќи интелигентни автоматизациски решенија без традиционално програмирање.",
+        tourismDesign:
+          "Комплетен UI/UX дизајн за платформа за алтернативен туризам, вклучувајќи wireframes, прототипови и дизајн систем во Figma и Protopie.",
+        designSystem:
+          "Сеопфатен дизајн систем за e-commerce платформи, со библиотеки на компоненти и водичи за стилови создадени во Figma и Bootstrap Studio.",
+        repoCheck:
+          "Агент кој ги скенира репозиториумите и ве информира дали содржат злонамерен код што не е безбеден за вашиот компјутер или вашите лични информации.",
+        blobArena:
+          "Брза RPG blob борбена игра со уникатни способности и стратешки gameplay.",
       },
 
       projects: "Избрани проекти",
@@ -239,6 +365,8 @@ const resources = {
         "Како Full-Stack-Developer, специјализиран сум за создавање на модерни веб апликации со Next.js, React и TypeScript. Мојот фокус е на создавање на ефикасни, скалабилни и кориснички пријатни решенија кои решаваат реални проблеми.",
       AboutParagraph2:
         "Имам искуство во развој на различни видови апликации, од платформи за е-трговија до образовни веб-сајтови. Страствен сум за чист код, оптимизација на перформансите и создавање на изключителни кориснички искуства.",
+      AboutParagraph3:
+        "Неодамна ја проширив мојата работа во областа на AI и автоматизација, развивајќи скалабилни backend API-ја и интелигентни системи со користење на Mistral, LangChain, LangGraph, DeepAgents, n8n и Relevance AI. Мојот моментален фокус вклучува градење AI-управувани агенти, имплементација на RAG (Retrieval-Augmented Generation) пајплајни и истражување на high-code vs. low-code за создавање хибридни AI решенија кои ја комбинираат флексибилноста со ефикасноста.",
       AboutTagline: "Секогаш учам, секогаш кодирам",
       ContactTitle: "Да се поврземе",
       ContactDescription:
@@ -273,26 +401,34 @@ const resources = {
       // Reading List
       ReadingListBadge: "Листа за читање",
       ReadingListTitle: "Книги",
-      ReadingListDescription: "Уживам да читам фантазиски романи и стоичка филозофија",
+      ReadingListDescription:
+        "Уживам да читам фантазиски романи и стоичка филозофија",
       ReadingListBooks: "Книги",
       ReadingListStatusReading: "Читам",
       ReadingListStatusWantToRead: "Сакам да прочитам",
       // Currently Learning
       CurrentlyLearningBadge: "Моментално учам",
       CurrentlyLearningTitle: "Секогаш растам, секогаш учам",
-      CurrentlyLearningDescription: "Континуирано проширувам моето знаење и вештини во сите технологии со кои работам",
+      CurrentlyLearningDescription:
+        "Континуирано проширувам моето знаење и вештини во сите технологии со кои работам",
       CurrentlyLearningFrontend: "Frontend технологии",
-      CurrentlyLearningFrontendDesc: "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
+      CurrentlyLearningFrontendDesc:
+        "React, Next.js, TypeScript, Tailwind CSS, Shadcn/ui",
       CurrentlyLearningBackend: "Backend и бази на податоци",
-      CurrentlyLearningBackendDesc: "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
+      CurrentlyLearningBackendDesc:
+        "Node.js, Express, PostgreSQL, MongoDB, SQL, NoSQL",
       CurrentlyLearningAI: "AI и машинско учење",
-      CurrentlyLearningAIDesc: "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
+      CurrentlyLearningAIDesc:
+        "LangChain, LangGraph, RAG, VectorDB, Pinecone, Mistral, DeepAgents",
       CurrentlyLearningAutomation: "Автоматизација и алатки",
-      CurrentlyLearningAutomationDesc: "N8N, n8n workflows, платформи за автоматизација",
+      CurrentlyLearningAutomationDesc:
+        "N8N, n8n workflows, платформи за автоматизација",
       CurrentlyLearningDesign: "Дизајн и прототипирање",
-      CurrentlyLearningDesignDesc: "Figma, Protopie, Bootstrap Studio, системи за дизајн",
+      CurrentlyLearningDesignDesc:
+        "Figma, Protopie, Bootstrap Studio, системи за дизајн",
       CurrentlyLearningDevTools: "Алатки за развој",
-      CurrentlyLearningDevToolsDesc: "Visual Studio Code, Git, модерни workflows за развој",
+      CurrentlyLearningDevToolsDesc:
+        "Visual Studio Code, Git, модерни workflows за развој",
       // Certifications
       CertificationsBadge: "Сертификати",
       CertificationsTitle: "Сертификати и достигнувања",
@@ -300,18 +436,27 @@ const resources = {
       // Education
       EducationTitle: "Образование",
       EducationSubtitle: "Универзитети и академии кои ги посетував",
-      EducationUniversity1: "Факултет за информациски и комуникациски технологии - Битола",
+      EducationUniversity1:
+        "Факултет за информациски и комуникациски технологии - Битола",
       EducationUniversity1Degree: "Универзитет Св. Климент Охридски Битола",
       EducationUniversity1Period: "2013 - 2018",
-      EducationUniversity1Description: "Студирање на информациски и комуникациски технологии, со фокус на развој на софтвер, основи на компјутерски науки и модерни веб технологии. Стекнато сеопфатно знаење за програмирање, бази на податоци, мрежи и дизајн на системи.",
+      EducationUniversity1Description:
+        "Студирање на информациски и комуникациски технологии, со фокус на развој на софтвер, основи на компјутерски науки и модерни веб технологии. Стекнато сеопфатно знаење за програмирање, бази на податоци, мрежи и дизајн на системи.",
       EducationBrainster1: "Brainster Academy",
       EducationBrainster1Degree: "Frontend Web Development Скопје",
       EducationBrainster1Period: "2022 - 2024",
-      EducationBrainster1Description: "Интензивна програма за развој на Frontend веб апликации која опфаќа модерни технологии вклучувајќи React.js, Next.js и најдобри практики. Учество во практични проекти и колаборативни искуства за учење.",
+      EducationBrainster1Description:
+        "Интензивна програма за развој на Frontend веб апликации која опфаќа модерни технологии вклучувајќи React.js, Next.js и најдобри практики. Учество во практични проекти и колаборативни искуства за учење.",
       EducationBrainster2: "Brainster Academy",
       EducationBrainster2Degree: "AI-atWork Скопје",
       EducationBrainster2Period: "2025-сега",
-      EducationBrainster2Description: "Сеопфатна програма за AI и автоматизација со фокус на градење AI-водени решенија, имплементација на RAG пајплајни и работа со модерни AI алатки и фрејмворци. Стекнато експертиза во AI инженеринг, автоматизација и развој на интелигентни системи.",
+      EducationBrainster2Description:
+        "Сеопфатна програма за AI и автоматизација со фокус на градење AI-водени решенија, имплементација на RAG пајплајни и работа со модерни AI алатки и фрејмворци. Стекнато експертиза во AI инженеринг, автоматизација и развој на интелигентни системи.",
+      EducationTuring: "Turing College",
+      EducationTuringDegree: "AI Engineering",
+      EducationTuringPeriod: "Септември 2025 - Март 2026",
+      EducationTuringDescription:
+        "Неодамна ги завршив студиите по AI Engineering на Turing College, каде што се фокусирав на RAG системи, LangChain, LangGraph и векторски бази на податоци. Најмногу го ценев структурата—предизвикувачки, реални проекти кои ме туркаа навистина да градам, а не само да учам. Менторите беа искусни и директни, што правеше голема разлика при работа на комплексни проблеми. Не беше лесно, но тоа е и поентата. Околината те принудува да размислуваш како инженер и да испорачуваш функционални решенија. Мило ми е што поминав низ тоа—сега продолжувам подлабоко во AI агенти и реални апликации.",
     },
   },
 };

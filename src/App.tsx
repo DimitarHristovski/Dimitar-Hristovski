@@ -18,12 +18,15 @@ import { ThreeDBackground } from "./components/ThreeDBackground";
 import { TechStack3D } from "./components/TechStack3D";
 import { ChatRobot } from "./components/ChatRobot";
 import { Banner } from "./components/Banner";
+import { ParallaxBannerAnimation } from "./components/ParallaxBannerAnimation";
 import { EducationSlider } from "./components/EducationSlider";
+import { CelebrationLayer } from "./components/CelebrationLayer";
 
 function App() {
   return (
     <div className="min-h-screen relative">
       <ThreeDBackground />
+      <CelebrationLayer />
       <TechStack3D />
       <SparkleAnimation />
       <ChatRobot />
@@ -34,6 +37,7 @@ function App() {
       <TechBubbleSection />
       <Skills />
       <About />
+      <ParallaxBannerAnimation />
       <Projects />
       <CurrentlyLearning />
       <Certifications />
